@@ -249,16 +249,18 @@
           var email = $("#email").val();
           var subject = $("#subject").val();
           var message = $("#message").val();
+          var phone = $("#phone").val();
 
           var data = {
             name: name,
             email: email,
             subject: subject,
             message: message,
+            phone: phone,
           };
 
           $.ajax({
-            url: "https://email-sender-8tkw.onrender.com/send-email/",
+            url: "https://email-sender-1-8xvf.onrender.com/send-email/",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(data),
