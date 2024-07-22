@@ -1,299 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+    <title>Synced Creative Agency</title>
 
-  <title>Synced Creative Agency</title>
-
-  <!-- Favicon -->
+    <!-- Favicon -->
   <link href="images/favicon.ico" rel="icon">
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-  <!-- font awesome style -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- font awesome style -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
 
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
-</head>
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+  </head>
 
-<body class="sub_page">
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-            <span> Synced Creative Agency </span>
-          </a>
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <span> Synced Creative Agency </span>
+            </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class=""> </span>
+            </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="service.html">Services</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="contact.html">Contact Us</a>
-              </li>
-            </ul>
-            <div class="quote_btn-container">
-              <a href="" class="quote_btn"> Get A Quote </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html"
+                    >Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service.html">Services</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+              </ul>
+              <div class="quote_btn-container">
+                <a href="" class="quote_btn"> Get A Quote </a>
+              </div>
             </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-  </div>
-
-  <!-- contact section -->
-
-  <section class="contact_section layout_padding">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-5 col-lg-4 offset-md-1">
-          <div class="form_container">
-            <div class="heading_container">
-              <h2>Request A Call back</h2>
-            </div>
-            <div id="success"></div>
-            <form name="sentMessage" id="contactForm" novalidate="novalidate">
-              <div>
-                <input type="text" placeholder="Full Name " class="form-control" id="name" required="required"
-                  data-validation-required-message="Please enter your name" />
-                <p class="help-block text-danger"></p>
-              </div>
-              <div>
-                <input type="email" class="form-control" id="email" placeholder="Your Email" required="required"
-                  data-validation-required-message="Please enter your email" />
-                <p class="help-block text-danger"></p>
-              </div>
-              <div>
-                <input type="text" class="form-control" id="phone" placeholder="Phone number"
-                  data-validation-required-message="Please enter phone number" />
-              </div>
-              <div>
-                <textarea class="form-control" id="message" placeholder="Message" required="required"
-                  data-validation-required-message="Please enter your message"></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-              <div class="d-flex">
-                <button class="btn btn-custom" type="submit" id="sendMessageButton">
-                  SEND
-                </button>
-              </div>
-            </form>
-          </div>
+          </nav>
         </div>
-        <div class="col-md-6 col-lg-7 px-0">
-          <div class="map_container">
-            <div class="map">
-              <div id="<iframe src="
-                https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31918.012857109!2d32.53750631083983!3d0.3313351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb6f33a26bff%3A0x24a97f3a1aa05f31!2sInfront%20Of%20Wandegeya%20Kcca%20Market!5e0!3m2!1sen!2sug!4v1721679624556!5m2!1sen!2sug"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </header>
+      <!-- end header section -->
     </div>
-  </section>
 
-  <!-- end contact section -->
+    <!-- contact section -->
 
-  <div class="footer_container">
-    <!-- info section -->
-
-    <section class="info_section">
-      <div class="container">
+    <section class="contact_section layout_padding">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <div class="info_detail">
-              <h4>Synced Creative Agency</h4>
-              <p>
-                Synced Creative Agency excels as a trusted partner for
-                businesses aiming to shine online, distinguished by their
-                commitment to excellence, creativity, and innovation in the
-                digital realm.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-2 mx-auto">
-            <div class="info_link_box">
-              <h4>Links</h4>
-              <div class="info_links">
-                <a class="" href="index.html"> Home </a>
-                <a class="" href="about.html"> About </a>
-                <a class="" href="service.html"> Services </a>
-                <a class="" href="contact.html"> Contact Us </a>
+          <div class="col-md-5 col-lg-4 offset-md-1">
+            <div class="form_container">
+              <div class="heading_container">
+                <h2>Request A Call back</h2>
               </div>
+              <div id="success"></div>
+              <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Full Name "
+                    class="form-control"
+                    id="name"
+                    required="required"
+                    data-validation-required-message="Please enter your name"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Your Email"
+                    required="required"
+                    data-validation-required-message="Please enter your email"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone"
+                    placeholder="Phone number"
+                    data-validation-required-message="Please enter phone number"
+                  />
+                </div>
+                <div>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    placeholder="Message"
+                    required="required"
+                    data-validation-required-message="Please enter your message"
+                  ></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="d-flex">
+                  <button
+                    class="btn btn-custom"
+                    type="submit"
+                    id="sendMessageButton"
+                  >
+                    SEND
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <h4>Subscribe</h4>
-            <form action="#">
-              <input type="text" placeholder="Enter email" />
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
-          <div class="col-md-6 col-lg-3 mb-0 ml-auto">
-            <div class="info_contact">
-              <h4>Address</h4>
-              <div class="contact_link_box">
-                <a href="">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <span> Location </span>
-                </a>
-                <a href="">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  <span> Call +256 393 24 2000 </span>
-                </a>
-                <a href="">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <span> syncedcreativeagency@gmail.com </span>
-                </a>
+          <div class="col-md-6 col-lg-7 px-0">
+            <div class="map_container">
+              <div class="map">
+                <div id="https://maps.app.goo.gl/17Ktnw5gw6No84nK6"></div>
               </div>
-            </div>
-            <div class="info_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- end info section -->
+    <!-- end contact section -->
 
-    <a href="https://wa.me/+256393242000" class="float" target="_blank">
-      <i class="fab fa-whatsapp my-float"></i>
-    </a>
+    <div class="footer_container">
+      <!-- info section -->
 
-    <!-- footer section -->
-    <footer class="footer_section">
-      <div class="container">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://syncedcreativeagency.netlify.app">Synced Creative Agency</a>
-        </p>
-      </div>
-    </footer>
-    <!-- footer section -->
-  </div>
+      <section class="info_section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-3">
+              <div class="info_detail">
+                <h4>Synced Creative Agency</h4>
+                <p>
+                  Synced Creative Agency excels as a trusted partner for
+                  businesses aiming to shine online, distinguished by their
+                  commitment to excellence, creativity, and innovation in the
+                  digital realm.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mx-auto">
+              <div class="info_link_box">
+                <h4>Links</h4>
+                <div class="info_links">
+                  <a class="" href="index.html"> Home </a>
+                  <a class="" href="about.html"> About </a>
+                  <a class="" href="service.html"> Services </a>
+                  <a class="" href="contact.html"> Contact Us </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <h4>Subscribe</h4>
+              <form action="#">
+                <input type="text" placeholder="Enter email" />
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-0 ml-auto">
+              <div class="info_contact">
+                <h4>Address</h4>
+                <div class="contact_link_box">
+                  <a href="">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span> Location </span>
+                  </a>
+                  <a href="">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <span> Call +256 393 24 2000 </span>
+                  </a>
+                  <a href="">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span> syncedcreativeagency@gmail.com </span>
+                  </a>
+                </div>
+              </div>
+              <div class="info_social">
+                <a href="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#sendMessageButton").click(function () {
-        var name = $("#name").val();
-        var email = $("#email").val();
-        var subject = $("#subject").val();
-        var message = $("#message").val();
-        var phone = $("#phone").val();
+      <!-- end info section -->
 
-        var data = {
-          name: name,
-          email: email,
-          subject: subject,
-          message: message,
-          phone: phone,
-        };
+      <a href="https://wa.me/+256393242000" class="float" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+      </a>
 
-        $.ajax({
-          url: "https://email-sender-1-8xvf.onrender.com/send-email/",
-          type: "POST",
-          contentType: "application/json",
-          data: JSON.stringify(data),
-          success: function (response) {
-            console.log("Email sent successfully:", response);
-            $("#success").html("<div class='alert alert-success'>");
-            $("#success > .alert-success").html(
-              "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
-            );
-            $("#success > .alert-success").append(
-              "<strong>Your message has been sent. </strong>"
-            );
-            $("#success > .alert-success").append("</div>");
-            $("#contactForm")[0].reset(); // Reset form
-            setTimeout(function () {
-              $("#success").fadeOut("slow");
-            }, 3000);
-          },
-          error: function (xhr, status, error) {
-            console.error("Error sending email:", error);
-            $("#success").html("<div class='alert alert-danger'>");
-            $("#success > .alert-danger").html(
-              "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
-            );
-            $("#success > .alert-danger").append(
-              $("<strong>").text(
-                "Sorry " +
-                name +
-                ", it seems that our mail server is not responding. Please try again later!"
-              )
-            );
-            $("#success > .alert-danger").append("</div>");
-            $("#contactForm")[0].reset(); // Reset form
-          },
-          complete: function () {
-            setTimeout(function () {
-              $this.prop("disabled", false);
-            }, 1000);
-          },
+      <!-- footer section -->
+      <footer class="footer_section">
+        <div class="container">
+          <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="https://syncedcreativeagency.netlify.app">Synced Creative Agency</a>
+          </p>
+        </div>
+      </footer>
+      <!-- footer section -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#sendMessageButton").click(function () {
+          var name = $("#name").val();
+          var email = $("#email").val();
+          var subject = $("#subject").val();
+          var message = $("#message").val();
+          var phone = $("#phone").val();
+
+          var data = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
+            phone: phone,
+          };
+
+          $.ajax({
+            url: "https://email-sender-1-8xvf.onrender.com/send-email/",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function (response) {
+              console.log("Email sent successfully:", response);
+              $("#success").html("<div class='alert alert-success'>");
+              $("#success > .alert-success").html(
+                "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
+              );
+              $("#success > .alert-success").append(
+                "<strong>Your message has been sent. </strong>"
+              );
+              $("#success > .alert-success").append("</div>");
+              $("#contactForm")[0].reset(); // Reset form
+              setTimeout(function () {
+                $("#success").fadeOut("slow");
+              }, 3000);
+            },
+            error: function (xhr, status, error) {
+              console.error("Error sending email:", error);
+              $("#success").html("<div class='alert alert-danger'>");
+              $("#success > .alert-danger").html(
+                "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
+              );
+              $("#success > .alert-danger").append(
+                $("<strong>").text(
+                  "Sorry " +
+                    name +
+                    ", it seems that our mail server is not responding. Please try again later!"
+                )
+              );
+              $("#success > .alert-danger").append("</div>");
+              $("#contactForm")[0].reset(); // Reset form
+            },
+            complete: function () {
+              setTimeout(function () {
+                $this.prop("disabled", false);
+              }, 1000);
+            },
+          });
         });
       });
-    });
-  </script>
+    </script>
 
 
-  <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
-  <script src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-  <!-- End Google Map -->
-</body>
-
+    <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+    <!-- End Google Map -->
+  </body>
 </html>
