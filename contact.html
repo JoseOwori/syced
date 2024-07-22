@@ -327,7 +327,29 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/custom.js"></script>
     <!-- Google Map -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+    <!DOCTYPE html>
+<html>
+<head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var location = {lat: 0.3351, lng: 32.5750}; // Coordinates for KCCA Building, Wandegeya
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="map" style="height: 450px; width: 600px;"></div>
+</body>
+</html>
+
     <!-- End Google Map -->
   </body>
 </html>
