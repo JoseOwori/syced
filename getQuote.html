@@ -95,12 +95,12 @@
                 subtotal += parseFloat(checkbox.value);
             });
 
-            let vat = subtotal * 0.18; // 18% VAT
-            let total = subtotal + vat;
+            // let vat = subtotal * 0.18; // 18% VAT
+            let total = subtotal;
 
             document.getElementById("subtotalPrice").innerText =
                 "$" + subtotal.toFixed(2);
-            document.getElementById("vatAmount").innerText = "$" + vat.toFixed(2);
+            // document.getElementById("vatAmount").innerText = "$" + vat.toFixed(2);
             document.getElementById("totalPrice").innerText =
                 "$" + total.toFixed(2);
         }
@@ -123,7 +123,7 @@
             });
 
             const subtotal = document.getElementById("subtotalPrice").innerText;
-            const vat = document.getElementById("vatAmount").innerText;
+            // const vat = document.getElementById("vatAmount").innerText;
             const total = document.getElementById("totalPrice").innerText;
 
             const phone = document.getElementById("phone").value;
@@ -131,6 +131,18 @@
             const comments = document.getElementById("comments").value;
 
             // Header
+            // Set the size of the logo
+            const imgSize = 30; // Diameter of the circular logo
+
+            // Calculate the X and Y position for the bottom right corner
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const logoX = pageWidth - imgSize - 10; // 10 units from the right edge
+            const logoY = pageHeight - imgSize - 10; // 10 units from the bottom edge
+
+            // Add circular logo
+            doc.addImage("./images/logo.jpg", 'JPG', logoX, logoY, imgSize, imgSize);
+
             doc.text("Service Quotation", 20, 20);
 
             // Table for selected services
@@ -146,17 +158,10 @@
                 head: [["Description", "Amount"]],
                 body: [
                     ["Subtotal", subtotal],
-                    ["VAT (18%)", vat],
+                    // ["VAT (18%)", vat],
                     ["Total", total],
                 ],
             });
-
-            // // User details section
-            // doc.text("User Details:", 20, doc.lastAutoTable.finalY + 30);
-            // doc.text(`Phone: ${phone}`, 20, doc.lastAutoTable.finalY + 40);
-            // doc.text(`Email: ${email}`, 20, doc.lastAutoTable.finalY + 40);
-            // doc.text("Comments:", 20, doc.lastAutoTable.finalY + 50);
-            // doc.text(comments, 20, doc.lastAutoTable.finalY + 60);
 
             // User details in table format
             doc.autoTable({
@@ -255,15 +260,22 @@
                     <td>$1200 (one-time)</td>
                 </tr>
                 <tr>
+                    <td>
+                        <input type="checkbox" value="12000" onchange="calculateTotal()" />
+                    </td>
+                    <td>Custo Website Development</td>
+                    <td>$12000 (installments)</td>
+                </tr>
+                <tr>
                     <td colspan="2" class="total">Subtotal</td>
                     <td class="total-value" id="subtotalPrice">$0.00</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td colspan="2" class="total">VAT (18%)</td>
                     <td class="total-value" id="vatAmount">$0.00</td>
-                </tr>
+                </tr> -->
                 <tr>
-                    <td colspan="2" class="total">Total with VAT</td>
+                    <td colspan="2" class="total">Total</td>
                     <td class="total-value" id="totalPrice">$0.00</td>
                 </tr>
             </table>
