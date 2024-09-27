@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Quotation Checklist with VAT</title>
+    <!-- Favicon -->
+    <link href="images/favicon.ico" rel="icon" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- font awesome style -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f8f8;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        .total {
+            font-weight: bold;
+        }
+
+        .total-value {
+            font-weight: bold;
+            color: green;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <script>
+        function calculateTotal() {
+            let subtotal = 0;
+            const checkboxes = document.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            );
+            checkboxes.forEach((checkbox) => {
+                subtotal += parseFloat(checkbox.value);
+            });
+
+            let vat = subtotal * 0.18; // 18% VAT
+            let total = subtotal + vat;
+
+            document.getElementById("subtotalPrice").innerText =
+                "$" + subtotal.toFixed(2);
+            document.getElementById("vatAmount").innerText = "$" + vat.toFixed(2);
+            document.getElementById("totalPrice").innerText =
+                "$" + total.toFixed(2);
+        }
+
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Data for the table
+            const selectedServices = [];
+            const checkboxes = document.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            );
+            checkboxes.forEach((checkbox) => {
+                const service = checkbox.parentElement.nextElementSibling.innerText;
+                const price =
+                    checkbox.parentElement.nextElementSibling.nextElementSibling
+                        .innerText;
+                selectedServices.push([service, price]);
+            });
+
+            const subtotal = document.getElementById("subtotalPrice").innerText;
+            const vat = document.getElementById("vatAmount").innerText;
+            const total = document.getElementById("totalPrice").innerText;
+
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const comments = document.getElementById("comments").value;
+
+            // Header
+            doc.text("Service Quotation", 20, 20);
+
+            // Table for selected services
+            doc.autoTable({
+                startY: 30,
+                head: [["Service", "Price"]],
+                body: selectedServices,
+            });
+
+            // Totals table
+            doc.autoTable({
+                startY: doc.lastAutoTable.finalY + 10,
+                head: [["Description", "Amount"]],
+                body: [
+                    ["Subtotal", subtotal],
+                    ["VAT (18%)", vat],
+                    ["Total", total],
+                ],
+            });
+
+            // // User details section
+            // doc.text("User Details:", 20, doc.lastAutoTable.finalY + 30);
+            // doc.text(`Phone: ${phone}`, 20, doc.lastAutoTable.finalY + 40);
+            // doc.text(`Email: ${email}`, 20, doc.lastAutoTable.finalY + 40);
+            // doc.text("Comments:", 20, doc.lastAutoTable.finalY + 50);
+            // doc.text(comments, 20, doc.lastAutoTable.finalY + 60);
+
+            // User details in table format
+            doc.autoTable({
+                startY: doc.lastAutoTable.finalY + 20, // Adjust the Y position
+                head: [['Field', 'Details']],
+                body: [
+                    ['Phone', phone],
+                    ['Email', email],
+                    ['Comments', comments]
+                ],
+                theme: 'grid', // You can change this to 'plain' if you don't want borders
+                headStyles: {
+                    fillColor: [41, 128, 185] // Optional: Add some color styling to the header
+                },
+                margin: { top: 10 }
+            });
+
+
+            // sendEmail()
+
+            doc.save(`quotation-${phone}.pdf`);
+        }
+    </script>
+</head>
+
+<body class="sub_page">
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="index.html">
+                        <span> Synced Creative Agency </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html"> About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="service.html">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                        <div class="quote_btn-container">
+                            <a href="getQuote.html" class="quote_btn"> Get A Quote </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+    </div>
+
+    <section class="service_section layout_padding">
+        <h1>Service Quotation Checklist with VAT</h1>
+
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Select</th>
+                    <th>Service</th>
+                    <th>Price (USD)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="150" onchange="calculateTotal()" />
+                    </td>
+                    <td>Hosting</td>
+                    <td>$150/year</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="100" onchange="calculateTotal()" />
+                    </td>
+                    <td>Website Maintenance</td>
+                    <td>$100/month</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="1200" onchange="calculateTotal()" />
+                    </td>
+                    <td>Website Development</td>
+                    <td>$1200 (one-time)</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="total">Subtotal</td>
+                    <td class="total-value" id="subtotalPrice">$0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="total">VAT (18%)</td>
+                    <td class="total-value" id="vatAmount">$0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="total">Total with VAT</td>
+                    <td class="total-value" id="totalPrice">$0.00</td>
+                </tr>
+            </table>
+
+            <div class="form-group">
+                <label for="phone" style="display: flex; justify-content: flex-start;">Phone Number:</label>
+                <input type="text" id="phone" placeholder="Enter your phone number" />
+            </div>
+
+            <div class="form-group">
+                <label for="email" style="display: flex; justify-content: flex-start;">Email Address:</label>
+                <input type="email" id="email" placeholder="Enter your email address" />
+            </div>
+
+            <div class="form-group">
+                <label for="comments" style="display: flex; justify-content: flex-start;">Type a Message</label>
+                <textarea id="comments" rows="4" placeholder="Type a message here"></textarea>
+            </div>
+
+            <button onclick="generatePDF()">Get Quote</button>
+        </div>
+    </section>
+
+    <div class="footer_container">
+        <!-- info section -->
+
+        <section class="info_section ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 ">
+                        <div class="info_detail">
+                            <h4>
+                                Synced Creative Agency
+                            </h4>
+                            <p>
+                                Synced Creative Agency excels as a trusted partner for businesses aiming to shine
+                                online, distinguished
+                                by their
+                                commitment to excellence, creativity, and innovation in the digital realm.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2 mx-auto">
+                        <div class="info_link_box">
+                            <h4>
+                                Links
+                            </h4>
+                            <div class="info_links">
+                                <a class="" href="index.html">
+                                    Home
+                                </a>
+                                <a class="" href="about.html">
+                                    About
+                                </a>
+                                <a class="" href="service.html">
+                                    Services
+                                </a>
+                                <a class="" href="contact.html">
+                                    Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 ">
+                        <h4>
+                            Subscribe
+                        </h4>
+                        <form action="#">
+                            <input type="text" placeholder="Enter email" />
+                            <button type="submit">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-0 ml-auto">
+                        <div class="info_contact">
+                            <h4>
+                                Address
+                            </h4>
+                            <div class="contact_link_box">
+                                <a href="">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>
+                                        KCCA Building, Wandegeya, South Wing Level 3
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>
+                                        Call +256 393 24 2000
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span>
+                                        syncedcreativeagency@gmail.com</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info_social">
+                            <a href="">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- end info section -->
+
+        <!-- footer section -->
+        <footer class="footer_section">
+            <div class="container">
+                <p>
+                    &copy; <span id="displayYear"></span> All Rights Reserved By
+                    <a href="https://syncedcreativeagency.cc">Synced Creative Agency</a>
+                </p>
+            </div>
+        </footer>
+        <!-- footer section -->
+    </div>
+    </div>
+</body>
+
+<!-- <script type="text/javascript">
+    // Initialize EmailJS
+    (function () {
+        emailjs.init({
+            publicKey: "hGyowoA-PeBSO282K",
+        });
+    })();
+
+    // function generatePDF() {
+    //     const { jsPDF } = window.jspdf;
+    //     const doc = new jsPDF();
+
+    //     // Add content to the PDF
+    //     doc.text("Service Quotation", 20, 20);
+    //     doc.text("Details about the services...", 20, 30);  // Add your content here
+
+    //     // Save the PDF as a blob
+    //     doc.save('quotation.pdf');
+
+    //     // Send the email with the PDF
+    //     sendEmail(doc.output('blob'));  // Send the PDF as a blob
+    // }
+
+    function sendEmail() {
+        // var formData = new FormData();
+        // formData.append("file", pdfBlob, "quotation.pdf");
+
+        emailjs.send("service_3enppdi", "template_e0cusp9", {
+            from_name: "Your Name",
+            to_name: "Recipient Name",
+            message: "Here is your quotation.",
+        }).then(function (response) {
+            alert('Email sent successfully!');
+        }, function (error) {
+            alert('Failed to send email: ' + error.text);
+        });
+    }
+</script> -->
+
+</html>
