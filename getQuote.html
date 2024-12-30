@@ -306,6 +306,7 @@
                         .then((result) => {
                             document.getElementById('success_message').style.display = 'block';
                             console.log(result.text);
+                            form.reset();
                         }, (error) => {
                             alert('Failed to send email. Please try again later.');
                             console.log(error.text);
