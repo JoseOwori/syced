@@ -2,436 +2,404 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Service Quotation Checklist with VAT</title>
-    <!-- Favicon -->
-    <link href="images/favicon.ico" rel="icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Quotation Checklist with VAT</title>
+  <!-- Favicon -->
+  <link href="images/favicon.ico" rel="icon" />
 
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-    <!-- font awesome style -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- font awesome style -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
 
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="css/responsive.css" rel="stylesheet" />
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
 
-        table,
-        th,
-        td {
-            border: 1px solid #ccc;
-        }
+    table,
+    th,
+    td {
+      border: 1px solid #ccc;
+    }
 
-        th,
-        td {
-            padding: 12px;
-            text-align: left;
-        }
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+    }
 
-        th {
-            background-color: #f8f8f8;
-        }
+    th {
+      background-color: #f8f8f8;
+    }
 
-        td {
-            background-color: #fff;
-        }
+    td {
+      background-color: #fff;
+    }
 
-        .total {
-            font-weight: bold;
-        }
+    .total {
+      font-weight: bold;
+    }
 
-        .total-value {
-            font-weight: bold;
-            color: green;
-        }
+    .total-value {
+      font-weight: bold;
+      color: green;
+    }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+    .form-group {
+      margin-bottom: 15px;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
 
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
 
-        button {
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
 
-        container{
-            display: flex;
-            justify-content: center;
-        }
-    </style>
+    container {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
 
 <body class="sub_page">
-<div class="hero_area">
+  <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
-              <span>
-                Synced Creative Agency
-              </span>
-            </a>
-  
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class=""> </span>
-            </button>
-  
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html">Services</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
-                </li>
-              </ul>
-              <div class="quote_btn-container">
-               <a href="getQuote.html" class="quote_btn"> Get A Quote </a> 
-              </div>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Synced Creative Agency
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="service.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+            </ul>
+            <div class="quote_btn-container">
+              <a href="getQuote.html" class="quote_btn"> Get A Quote </a>
             </div>
-          </nav>
-        </div>
-      </header>
-      <!-- end header section -->
-</div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
 
 
-    <div class="container d-flex justify-content-center mt-5 mb-5">
-        <div class="card" style="width: 100%; max-width: 600px;">
-            <div class="card-body">
-                <form class="well form-horizontal" action=" " method="post" id="contact_form" onsubmit="sendEmail(event)">
-                    <fieldset>
+  <div class="container d-flex justify-content-center mt-5 mb-5">
+    <div class="card" style="width: 100%; max-width: 600px;">
+      <div class="card-body">
+        <form class="well form-horizontal" action=" " method="post" id="contact_form" onsubmit="sendEmail(event)">
+          <fieldset>
 
-                        <!-- Form Name -->
-                        <legend>Contact Us Today!</legend>
+            <!-- Form Name -->
+            <legend>Contact Us Today!</legend>
 
-                        <div class="row">
-                            <!-- First Name -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">First Name</label>
-                                <input name="first_name" placeholder="First Name" class="form-control" type="text">
-                            </div>
-
-                            <!-- Last Name -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Last Name</label>
-                                <input name="last_name" placeholder="Last Name" class="form-control" type="text">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <!-- E-Mail -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">E-Mail</label>
-                                <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
-                            </div>
-
-                            <!-- Phone # -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Phone #</label>
-                                <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <!-- Address -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Address</label>
-                                <input name="address" placeholder="Address" class="form-control" type="text">
-                            </div>
-
-                            <!-- City -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">City</label>
-                                <input name="city" placeholder="City" class="form-control" type="text">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <!-- State -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">State</label>
-                                <select name="state" class="form-control selectpicker">
-                                    <option value=" ">Please select your state</option>
-                                    <option>Alabama</option>
-                                    <option>Alaska</option>
-                                    <option>Arizona</option>
-                                    <option>Arkansas</option>
-                                    <option>California</option>
-                                    <option>Colorado</option>
-                                    <option>Connecticut</option>
-                                    <option>Delaware</option>
-                                    <option>District of Columbia</option>
-                                    <option> Florida</option>
-                                    <option>Georgia</option>
-                                    <option>Hawaii</option>
-                                    <option>daho</option>
-                                    <option>Illinois</option>
-                                    <option>Indiana</option>
-                                    <option>Iowa</option>
-                                    <option> Kansas</option>
-                                    <option>Kentucky</option>
-                                    <option>Louisiana</option>
-                                    <option>Maine</option>
-                                    <option>Maryland</option>
-                                    <option> Mass</option>
-                                    <option>Michigan</option>
-                                    <option>Minnesota</option>
-                                    <option>Mississippi</option>
-                                    <option>Missouri</option>
-                                    <option>Montana</option>
-                                    <option>Nebraska</option>
-                                    <option>Nevada</option>
-                                    <option>New Hampshire</option>
-                                    <option>New Jersey</option>
-                                    <option>New Mexico</option>
-                                    <option>New York</option>
-                                    <option>North Carolina</option>
-                                    <option>North Dakota</option>
-                                    <option>Ohio</option>
-                                    <option>Oklahoma</option>
-                                    <option>Oregon</option>
-                                    <option>Pennsylvania</option>
-                                    <option>Rhode Island</option>
-                                    <option>South Carolina</option>
-                                    <option>South Dakota</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option> Uttah</option>
-                                    <option>Vermont</option>
-                                    <option>Virginia</option>
-                                    <option>Washington</option>
-                                    <option>West Virginia</option>
-                                    <option>Wisconsin</option>
-                                    <option>Wyoming</option>
-                                </select>
-                            </div>
-
-                            <!-- Zip Code -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Zip Code</label>
-                                <input name="zip" placeholder="Zip Code" class="form-control" type="text">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <!-- Website or domain name -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Website or domain name</label>
-                                <input name="website" placeholder="Website or domain name" class="form-control" type="text">
-                            </div>
-
-                            <!-- Do you have hosting? -->
-                            <div class="form-group col-md-6">
-                                <label class="control-label">Do you have hosting?</label>
-                                <div>
-                                    <label><input type="radio" name="hosting" value="yes" /> Yes</label>
-                                    <label><input type="radio" name="hosting" value="no" /> No</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <!-- Project Description -->
-                            <div class="form-group col-md-12">
-                                <label class="control-label">Project Description</label>
-                                <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Success message -->
-                        <div class="alert alert-success" role="alert" id="success_message" style="display: none;">Success <i
-                            class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you
-                        shortly.</div>
-
-                        <!-- Button -->
-                        <div class="form-group">
-                            <div>
-                                <button type="submit" class="btn btn-warning">Send <span
-                                        class="glyphicon glyphicon-send"></span></button>
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
-
-                <script>
-                    function sendEmail(event) {
-                      event.preventDefault(); 
-                  
-                      const form = document.getElementById('contact_form');
-                      const formData = new FormData(form);
-
-                      const data = {};
-                        for (let [key, value] of formData.entries()) {
-                            data[key] = value; 
-                        }
-                  
-                      emailjs.send('service_to6e4rh', 'template_sb2tpdf', data)
-                        .then((result) => {
-                            document.getElementById('success_message').style.display = 'block';
-                            console.log(result.text);
-                            form.reset();
-                        }, (error) => {
-                            alert('Failed to send email. Please try again later.');
-                            console.log(error.text);
-                        });
-                    }
-                  </script>
-            </div>
-        </div>
-    </div>
-    </div><!-- /.container -->
-
-    <div class="footer_container">
-        <!-- info section -->
-  
-        <section class="info_section">
-          <div class="container">
             <div class="row">
-              <div class="col-md-6 col-lg-3">
-                <div class="info_detail">
-                  <!-- <h4>Synced Creative Agency</h4> -->
-                  <img src="images/logo.jpg" alt="Synced Creative Agency Logo" style="max-width: 50%; height: auto;" />
-                  <p>
-                    Synced Creative Agency excels as a trusted partner for
-                    businesses aiming to shine online, distinguished by their
-                    commitment to excellence, creativity, and innovation in the
-                    digital realm.
-                  </p>
-                </div>
+              <!-- First Name -->
+              <div class="form-group col-md-6">
+                <label class="control-label">First Name</label>
+                <input name="first_name" placeholder="First Name" class="form-control" type="text">
               </div>
-              <div class="col-md-6 col-lg-2 mx-auto">
-                <div class="info_link_box">
-                  <h4>Links</h4>
-                  <div class="info_links">
-                    <a class="" href="index.html"> Home </a>
-                    <a class="" href="about.html"> About </a>
-                    <a class="" href="service.html"> Services </a>
-                    <a class="" href="contact.html"> Contact Us </a>
-                  </div>
-                </div>
+
+              <!-- Last Name -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Last Name</label>
+                <input name="last_name" placeholder="Last Name" class="form-control" type="text">
               </div>
-              <div class="col-md-6 col-lg-3">
-                <h4>Subscribe</h4>
-                <form action="#">
-                  <input type="text" placeholder="Enter email" />
-                  <button type="submit">Subscribe</button>
-                </form>
+            </div>
+
+            <div class="row">
+              <!-- E-Mail -->
+              <div class="form-group col-md-6">
+                <label class="control-label">E-Mail</label>
+                <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
               </div>
-              <div class="col-md-6 col-lg-3 mb-0 ml-auto">
-                <div class="info_contact">
-                  <h4>Address</h4>
-                  <div class="contact_link_box">
-                    <a href="">
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      <span> KCCA Building, Wandegeya, South Wing Level 3 </span>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-phone" aria-hidden="true"></i>
-                      <span> Call +256 393 24 2000 </span>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-envelope" aria-hidden="true"></i>
-                      <span> syncedcreativeagency@gmail.com</span>
-                    </a>
-                  </div>
-                </div>
-                <div class="info_social">
-                  <a href="">
-                    <a href="https://www.facebook.com/groups/918986273404331" target="_blank">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://x.com/MattOwori" target="_blank">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://www.linkedin.com/in/joseph-owori-17741b1a4/" target="_blank">
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://www.instagram.com/syncedcreativeangency/" target="_blank">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                  </a>
+
+              <!-- Phone # -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Phone #</label>
+                <input name="phone" placeholder="(256)3932-42000" class="form-control" type="text">
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Address -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Address</label>
+                <input name="address" placeholder="Address" class="form-control" type="text">
+              </div>
+
+              <!-- City -->
+              <div class="form-group col-md-6">
+                <label class="control-label">City</label>
+                <input name="city" placeholder="City" class="form-control" type="text">
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- State -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Region</label>
+                <select name="state" class="form-control selectpicker">
+                  <option value=" ">Please select your region</option>
+                  <option>Arua</option>
+                  <option>Bushenyi</option>
+                  <option>Entebbe</option>
+                  <option>Fort Portal</option>
+                  <option>Gulu</option>
+                  <option>Hoima</option>
+                  <option>Iganga</option>
+                  <option>Jinja</option>
+                  <option>Kabale</option>
+                  <option>Kampala</option>
+                  <option>Kitgum</option>
+                  <option>Kira</option>
+                  <option>Lira</option>
+                  <option>Masaka</option>
+                  <option>Mbale</option>
+                  <option>Mbarara</option>
+                  <option>Mukono</option>
+                  <option>Nansana</option>
+                  <option>Soroti</option>
+                  <option>Tororo</option>
+                </select>
+              </div>
+
+              <!-- Zip Code -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Zip Code</label>
+                <input name="zip" placeholder="Zip Code" class="form-control" type="text">
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Website or domain name -->
+              <div class="form-group col-md-6">
+                <label class="control-label">What type of website do you require for your needs?</label>
+                <input name="website" placeholder="Website or domain name" class="form-control" type="text">
+              </div>
+
+              <!-- Do you have hosting? -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Do you need web hosting and maintenance services?</label>
+                <div>
+                  <label><input type="radio" name="hosting" value="yes" /> Yes</label>
+                  <label><input type="radio" name="hosting" value="no" /> No</label>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-  
-        <!-- end info section -->
-  
-        <!-- footer section -->
-        <footer class="footer_section">
-          <div class="container">
-            <p>
-              &copy; <span id="displayYear"></span> Synced Creative Agency. All Rights Reserved</a>
-            </p>
-          </div>
-        </footer>
-        <!-- footer section -->
+
+            <div class="row">
+              <!-- Project Description -->
+              <div class="form-group col-md-12">
+                <label class="control-label">Project Description</label>
+                <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
+              </div>
+            </div>
+
+            <!-- Success message -->
+            <div class="alert alert-success" role="alert" id="success_message" style="display: none;">Success <i
+                class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you
+              shortly.</div>
+
+            <!-- Button -->
+            <div class="form-group">
+              <div>
+                <button type="submit" class="btn btn-warning">Send <span
+                    class="glyphicon glyphicon-send"></span></button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
+        <script>
+          function sendEmail(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('contact_form');
+            const formData = new FormData(form);
+
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+              data[key] = value;
+            }
+
+            emailjs.send('service_to6e4rh', 'template_sb2tpdf', data)
+              .then((result) => {
+                document.getElementById('success_message').style.display = 'block';
+                console.log(result.text);
+                form.reset();
+              }, (error) => {
+                alert('Failed to send email. Please try again later.');
+                console.log(error.text);
+              });
+          }
+        </script>
       </div>
     </div>
-    <a href="https://wa.me/+256393242000" class="float" target="_blank">
-      <i class="fab fa-whatsapp my-float"></i>
-    </a>
-    <!-- jQery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <!-- popper js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-      </script>
-    <!-- bootstrap js -->
-    <script src="js/bootstrap.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- Google Map -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-    <!-- End Google Map -->
-    
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </div>
+  </div><!-- /.container -->
+
+  <div class="footer_container">
+    <!-- info section -->
+
+    <section class="info_section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="info_detail">
+              <!-- <h4>Synced Creative Agency</h4> -->
+              <img src="images/logo.jpg" alt="Synced Creative Agency Logo" style="max-width: 50%; height: auto;" />
+              <p>
+                Synced Creative Agency excels as a trusted partner for
+                businesses aiming to shine online, distinguished by their
+                commitment to excellence, creativity, and innovation in the
+                digital realm.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-2 mx-auto">
+            <div class="info_link_box">
+              <h4>Links</h4>
+              <div class="info_links">
+                <a class="" href="index.html"> Home </a>
+                <a class="" href="about.html"> About </a>
+                <a class="" href="service.html"> Services </a>
+                <a class="" href="contact.html"> Contact Us </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <h4>Subscribe</h4>
+            <form action="#">
+              <input type="text" placeholder="Enter email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-0 ml-auto">
+            <div class="info_contact">
+              <h4>Address</h4>
+              <div class="contact_link_box">
+                <a href="">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <span> KCCA Building, Wandegeya, South Wing Level 3 </span>
+                </a>
+                <a href="">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <span> Call +256 393 24 2000 </span>
+                </a>
+                <a href="">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <span> syncedcreativeagency@gmail.com</span>
+                </a>
+              </div>
+            </div>
+            <div class="info_social">
+              <a href="">
+                <a href="https://www.facebook.com/groups/918986273404331" target="_blank">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://x.com/MattOwori" target="_blank">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/joseph-owori-17741b1a4/" target="_blank">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.instagram.com/syncedcreativeangency/" target="_blank">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end info section -->
+
+    <!-- footer section -->
+    <footer class="footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> Synced Creative Agency. All Rights Reserved</a>
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+  </div>
+  </div>
+  <a href="https://wa.me/+256393242000" class="float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+  </a>
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init({
-                publicKey: "7uklBAePSEJbLv1vt",
-            }); 
-        })();
-    </script>
-  </body>
-  
-  </html>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "7uklBAePSEJbLv1vt",
+      });
+    })();
+  </script>
+</body>
+
+</html>
