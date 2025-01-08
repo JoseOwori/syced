@@ -133,7 +133,7 @@
                 frameborder="0" 
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY_HERE
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB_YOUR_ACTUAL_API_KEY_HERE
                   &q=KCCA+Building,Wandegeya,Uganda">
               </iframe>
 >>>>>>> 8f0b356aeadd370f6e7588912ee1136840895065
@@ -205,6 +205,11 @@
               <a href="">
                 <a href="https://www.facebook.com/groups/918986273404331" target="_blank">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
+=======
+<<<<<<< HEAD
+              <a href="">
+                <a href="https://www.facebook.com/groups/918986273404331" target="_blank">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
                 <a href="">
                   <a href="https://x.com/MattOwori" target="_blank">
@@ -220,6 +225,7 @@
               <a href="https://www.facebook.com/groups/918986273404331" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
                 <span class="sr-only">Facebook</span>
+>>>>>>> f2c3c7ac1e7bc8a9582b044c27bc584541892e03
               </a>
               <a href="https://x.com/MattOwori" target="_blank">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -284,34 +290,45 @@
           url: "https://email-sender-1-8xvf.onrender.com/send-email/",
           type: "POST",
           contentType: "application/json",
-          data: JSON.stringify(formData),
-          success: function(response) {
-            showAlert('success', 'Your message has been sent successfully!');
-            form[0].reset();
+          data: JSON.stringify(data),
+          success: function (response) {
+            console.log("Email sent successfully:", response);
+            $("#success").html("<div class='alert alert-success'>");
+            $("#success > .alert-success").html(
+              "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
+            );
+            $("#success > .alert-success").append(
+              "<strong>Your message has been sent. </strong>"
+            );
+            $("#success > .alert-success").append("</div>");
+            $("#contactForm")[0].reset(); // Reset form
+            setTimeout(function () {
+              $("#success").fadeOut("slow");
+            }, 3000);
           },
-          error: function(xhr, status, error) {
-            showAlert('danger', 'Sorry, there was an error sending your message. Please try again later.');
+          error: function (xhr, status, error) {
+            console.error("Error sending email:", error);
+            $("#success").html("<div class='alert alert-danger'>");
+            $("#success > .alert-danger").html(
+              "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
+            );
+            $("#success > .alert-danger").append(
+              $("<strong>").text(
+                "Sorry " +
+                name +
+                ", it seems that our mail server is not responding. Please try again later!"
+              )
+            );
+            $("#success > .alert-danger").append("</div>");
+            $("#contactForm")[0].reset(); // Reset form
           },
-          complete: function() {
-            buttonText.removeClass('d-none');
-            spinner.addClass('d-none');
-            submitButton.prop('disabled', false);
-          }
+          complete: function () {
+            setTimeout(function () {
+              $this.prop("disabled", false);
+            }, 1000);
+          },
         });
       });
-      
-      function showAlert(type, message) {
-        $("#success")
-          .html(`<div class="alert alert-${type} alert-dismissible fade show" role="alert">
-            ${message}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>`)
-          .fadeIn();
-          
-        setTimeout(() => $("#success").fadeOut('slow'), 5000);
-      }
     });
   </script>
 
