@@ -8,8 +8,8 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
+  <meta name="keywords" content="web development, hosting, Microsoft 365, IT consultancy, Kampala, Uganda">
+  <meta name="description" content="Synced Creative Agency - Your trusted partner for web development, hosting, and Microsoft 365 consultancy services in Kampala, Uganda">
   <meta name="author" content="" />
 
   <title>Synced Creative Agency</title>
@@ -592,11 +592,17 @@
                 Request A Call back
               </h2>
             </div>
-            <form name="sentMessage" id="contactForm" novalidate="novalidate">
-              <div>
-                <input type="text" placeholder="Full Name " class="form-control" id="name" required="required"
-                  data-validation-required-message="Please enter your name" />
-                <p class="help-block text-danger"></p>
+            <form name="sentMessage" id="contactForm" class="needs-validation" novalidate>
+              <div class="form-group">
+                <input type="text" 
+                       class="form-control" 
+                       id="name" 
+                       required 
+                       pattern="[A-Za-z ]{2,}"
+                       placeholder="Full Name">
+                <div class="invalid-feedback">
+                  Please enter your name (minimum 2 characters)
+                </div>
               </div>
               <div>
                 <input type="email" class="form-control" id="email" placeholder="Your Email" required="required"
@@ -713,19 +719,18 @@
               </div>
             </div>
             <div class="info_social">
-              <a href="">
-                <a href="https://www.facebook.com/groups/918986273404331" target="_blank">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="https://x.com/MattOwori" target="_blank">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/joseph-owori-17741b1a4/" target="_blank">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.instagram.com/syncedcreativeangency/" target="_blank">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
+              <a href="https://www.facebook.com/groups/918986273404331" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="https://x.com/MattOwori" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/joseph-owori-17741b1a4/" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.instagram.com/syncedcreativeangency/" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
             </div>
           </div>
         </div>
