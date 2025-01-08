@@ -83,28 +83,34 @@
             </div>
             <div id="success"></div>
             <form name="sentMessage" id="contactForm" novalidate="novalidate">
-              <div>
-                <input type="text" placeholder="Full Name " class="form-control" id="name" required="required"
-                  data-validation-required-message="Please enter your name" />
-                <p class="help-block text-danger"></p>
+              <div class="form-group">
+                <label for="name" class="sr-only">Full Name</label>
+                <input type="text" placeholder="Full Name" class="form-control" id="name" required 
+                       aria-required="true" aria-label="Full Name"/>
+                <div class="invalid-feedback">Please enter your name</div>
               </div>
-              <div>
+              <div class="form-group">
+                <label for="email" class="sr-only">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="Your Email" required="required"
                   data-validation-required-message="Please enter your email" />
-                <p class="help-block text-danger"></p>
+                <div class="invalid-feedback">Please enter a valid email address</div>
               </div>
-              <div>
+              <div class="form-group">
+                <label for="phone" class="sr-only">Phone</label>
                 <input type="text" class="form-control" id="phone" placeholder="Phone number"
                   data-validation-required-message="Please enter phone number" />
+                <div class="invalid-feedback">Please enter a valid phone number</div>
               </div>
-              <div>
+              <div class="form-group">
+                <label for="message" class="sr-only">Message</label>
                 <textarea class="form-control" id="message" placeholder="Message" required="required"
                   data-validation-required-message="Please enter your message"></textarea>
-                <p class="help-block text-danger"></p>
+                <div class="invalid-feedback">Please enter a message</div>
               </div>
               <div class="d-flex">
                 <button class="btn btn-custom" type="submit" id="sendMessageButton">
-                  SEND
+                  <span class="button-text">SEND</span>
+                  <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                 </button>
               </div>
             </form>
@@ -113,10 +119,16 @@
         <div class="col-md-6 col-lg-7 px-0">
           <div class="map_container">
             <div class="map">
-              <div id="<div style=" width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no"
-                  marginheight="0" marginwidth="0"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=KCCA%20Building,%20Wandegeya,%20South%20Wing%20Level%203+(Synced%20Creative%20Agency)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
-                    href="https://www.gps.ie/">gps systems</a></iframe></div>
+              <iframe 
+                title="Office Location"
+                width="100%" 
+                height="600" 
+                frameborder="0" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY_HERE
+                  &q=KCCA+Building,Wandegeya,Uganda">
+              </iframe>
             </div>
           </div>
         </div>
@@ -180,19 +192,21 @@
               </div>
             </div>
             <div class="info_social">
-              <a href="">
-                <a href="https://www.facebook.com/groups/918986273404331" target="_blank">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
+              <a href="https://www.facebook.com/groups/918986273404331" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <span class="sr-only">Facebook</span>
               </a>
-              <a href="">
-                <a href="https://x.com/MattOwori" target="_blank">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/joseph-owori-17741b1a4/" target="_blank">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.instagram.com/syncedcreativeangency/" target="_blank">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
+              <a href="https://x.com/MattOwori" target="_blank">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <span class="sr-only">Twitter</span>
+              </a>
+              <a href="https://www.linkedin.com/in/joseph-owori-17741b1a4/" target="_blank">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+              <a href="https://www.instagram.com/syncedcreativeangency/" target="_blank">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <span class="sr-only">Instagram</span>
               </a>
             </div>
           </div>
@@ -219,65 +233,59 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    $(document).ready(function () {
-      $("#sendMessageButton").click(function () {
-        var name = $("#name").val();
-        var email = $("#email").val();
-        var subject = $("#subject").val();
-        var message = $("#message").val();
-        var phone = $("#phone").val();
-
-        var data = {
-          name: name,
-          email: email,
-          subject: subject,
-          message: message,
-          phone: phone,
+    $(document).ready(function() {
+      const form = $("#contactForm");
+      const submitButton = $("#sendMessageButton");
+      const buttonText = submitButton.find('.button-text');
+      const spinner = submitButton.find('.spinner-border');
+      
+      form.on('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        buttonText.addClass('d-none');
+        spinner.removeClass('d-none');
+        submitButton.prop('disabled', true);
+        
+        const formData = {
+          name: $("#name").val().trim(),
+          email: $("#email").val().trim(),
+          phone: $("#phone").val().trim(),
+          message: $("#message").val().trim()
         };
 
         $.ajax({
           url: "https://email-sender-1-8xvf.onrender.com/send-email/",
           type: "POST",
           contentType: "application/json",
-          data: JSON.stringify(data),
-          success: function (response) {
-            console.log("Email sent successfully:", response);
-            $("#success").html("<div class='alert alert-success'>");
-            $("#success > .alert-success").html(
-              "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
-            );
-            $("#success > .alert-success").append(
-              "<strong>Your message has been sent. </strong>"
-            );
-            $("#success > .alert-success").append("</div>");
-            $("#contactForm")[0].reset(); // Reset form
-            setTimeout(function () {
-              $("#success").fadeOut("slow");
-            }, 3000);
+          data: JSON.stringify(formData),
+          success: function(response) {
+            showAlert('success', 'Your message has been sent successfully!');
+            form[0].reset();
           },
-          error: function (xhr, status, error) {
-            console.error("Error sending email:", error);
-            $("#success").html("<div class='alert alert-danger'>");
-            $("#success > .alert-danger").html(
-              "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
-            );
-            $("#success > .alert-danger").append(
-              $("<strong>").text(
-                "Sorry " +
-                name +
-                ", it seems that our mail server is not responding. Please try again later!"
-              )
-            );
-            $("#success > .alert-danger").append("</div>");
-            $("#contactForm")[0].reset(); // Reset form
+          error: function(xhr, status, error) {
+            showAlert('danger', 'Sorry, there was an error sending your message. Please try again later.');
           },
-          complete: function () {
-            setTimeout(function () {
-              $this.prop("disabled", false);
-            }, 1000);
-          },
+          complete: function() {
+            buttonText.removeClass('d-none');
+            spinner.addClass('d-none');
+            submitButton.prop('disabled', false);
+          }
         });
       });
+      
+      function showAlert(type, message) {
+        $("#success")
+          .html(`<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+            ${message}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>`)
+          .fadeIn();
+          
+        setTimeout(() => $("#success").fadeOut('slow'), 5000);
+      }
     });
   </script>
 
