@@ -2,32 +2,30 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #f5f5f7;
-  color: #1d1d1f;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #fff;
+  color: #111827;
 }
 
 /* Header styling */
 .header_section {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  position: fixed;
+  background: #fff;
+  position: sticky;
+  top: 0;
   width: 100%;
   z-index: 1000;
-  padding: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .navbar {
-  max-width: 980px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0.8rem 1rem;
+  padding: 1rem;
 }
 
 .navbar-brand span {
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .nav-item {
@@ -48,20 +46,20 @@ body {
 
 /* Service section styling */
 .service_section {
-  max-width: 980px;
-  margin: 6rem auto 2rem;
-  padding: 2rem 1rem;
+  max-width: 1280px;
+  margin: 4rem auto;
+  padding: 0 1rem;
 }
 
 .heading_container {
-  text-align: center;
-  margin-bottom: 4rem;
+  text-align: left;
+  margin-bottom: 3rem;
 }
 
 .heading_container h2 {
-  font-size: 3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
 .heading_container p {
@@ -73,18 +71,18 @@ body {
 
 /* Service boxes */
 .service_section .box {
-  background: white;
-  border-radius: 18px;
-  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
   margin-bottom: 2rem;
   transition: all 0.3s ease;
-  border: none;
-  text-align: center;
+  border: 1px solid #e5e7eb;
+  text-align: left;
 }
 
 .service_section .box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .service_section .img-box {
@@ -115,30 +113,28 @@ body {
 }
 
 .btn-box a {
-  background: #0071e3;
+  background: #111827;
   color: white;
-  padding: 0.8rem 2rem;
-  border-radius: 980px;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.2s;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
 }
 
 .btn-box a:hover {
-  background: #0077ed;
-  transform: scale(1.02);
+  background: #374151;
+  transform: translateY(-1px);
 }
 
 /* Footer styling */
 .footer_container {
-  background: white;
-  margin-top: 4rem;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
 }
 
 .info_section {
-  max-width: 980px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
 }
 
 /* WhatsApp float button */
