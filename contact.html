@@ -260,7 +260,7 @@
           url: "https://email-sender-1-8xvf.onrender.com/send-email/",
           type: "POST",
           contentType: "application/json",
-          data: JSON.stringify(data),
+          data: JSON.stringify(formData),
           success: function (response) {
             console.log("Email sent successfully:", response);
             $("#success").html("<div class='alert alert-success'>");
