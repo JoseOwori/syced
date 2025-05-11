@@ -869,4 +869,12 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
+.email-link {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: #f46801 !important;
+}
 /*# sourceMappingURL=style.css.map */
