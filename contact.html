@@ -85,8 +85,8 @@
             <form name="sentMessage" id="contactForm" novalidate="novalidate">
               <div class="form-group">
                 <label for="name" class="sr-only">Full Name</label>
-                <input type="text" placeholder="Full Name" class="form-control" id="name" required 
-                       aria-required="true" aria-label="Full Name"/>
+                <input type="text" placeholder="Full Name" class="form-control" id="name" required aria-required="true"
+                  aria-label="Full Name" />
                 <div class="invalid-feedback">Please enter your name</div>
               </div>
               <div class="form-group">
@@ -119,16 +119,10 @@
         <div class="col-md-6 col-lg-7 px-0">
           <div class="map_container">
             <div class="map">
-              <iframe 
-                title="Office Location"
-                width="100%" 
-                height="550" 
-                frameborder="0" 
-                style="border:0"
-                loading="lazy"
+              <iframe title="Office Location" width="100%" height="550" frameborder="0" style="border:0" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=KCCA%20Building,%20Wandegeya,%20South%20Wing%20Level%203+(Synced%20Creative%20Agency)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
-                    href="https://www.gps.ie/">
+                  href="https://www.gps.ie/">
               </iframe>
             </div>
           </div>
@@ -189,7 +183,10 @@
                 </a>
                 <a href="">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <span> syncedcreative@gmail.com </span>
+                  <span><a href="mailto:syncedcreative@gmail.com" class="text-primary d-inline-block"
+                      style="font-size: 0.95em; text-decoration: none;">
+                      syncedcreative@gmail.com</span>
+                </a>
                 </a>
               </div>
             </div>
@@ -235,20 +232,20 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       const form = $("#contactForm");
       const submitButton = $("#sendMessageButton");
       const buttonText = submitButton.find('.button-text');
       const spinner = submitButton.find('.spinner-border');
-      
-      form.on('submit', function(e) {
+
+      form.on('submit', function (e) {
         e.preventDefault();
-        
+
         // Show loading state
         buttonText.addClass('d-none');
         spinner.removeClass('d-none');
         submitButton.prop('disabled', true);
-        
+
         const formData = {
           name: $("#name").val().trim(),
           email: $("#email").val().trim(),
