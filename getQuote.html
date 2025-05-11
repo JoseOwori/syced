@@ -323,6 +323,7 @@
                           <select class="form-select" id="budget" name="budget">
                               <option value="">Select Budget Range</option>
                           </select>
+                          <small class="text-muted" id="exchangeRate">Loading exchange rate...</small>
                       </div>
                       <div class="col-12">
                           <label class="form-label" for="projectDescription">Project Description *</label>
@@ -453,59 +454,140 @@
 </style>
 
 <script>
+// Add this at the top of your script
+let exchangeRateCache = {};
+const CACHE_DURATION = 3600000; // 1 hour in milliseconds
+
+async function getExchangeRate(fromCurrency, toCurrency = 'USD') {
+    const cacheKey = `${fromCurrency}_${toCurrency}`;
+    
+    // Check cache first
+    if (exchangeRateCache[cacheKey] && 
+        (Date.now() - exchangeRateCache[cacheKey].timestamp) < CACHE_DURATION) {
+        return exchangeRateCache[cacheKey].rate;
+    }
+
+    // Show loading state
+    document.getElementById('exchangeRate').innerHTML = 
+        '<i class="fas fa-sync fa-spin"></i> Fetching latest exchange rates...';
+
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+        const response = await fetch(
+            `https://api.exchangerate-api.com/v4/latest/${toCurrency}`,
+            { signal: controller.signal }
+        );
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error('Exchange rate service unavailable');
+
+        const data = await response.json();
+        const rate = data.rates[fromCurrency];
+
+        if (rate) {
+            // Cache the result
+            exchangeRateCache[cacheKey] = {
+                rate: rate,
+                timestamp: Date.now()
+            };
+            return rate;
+        }
+        throw new Error('Currency not found');
+    } catch (error) {
+        console.error('Error fetching exchange rate:', error);
+        document.getElementById('exchangeRate').innerHTML = 
+            '<i class="fas fa-exclamation-circle"></i> Could not fetch exchange rate. Using estimated rates.';
+        
+        // Return cached rate if available, otherwise fallback rates
+        return exchangeRateCache[cacheKey]?.rate || getFallbackRate(fromCurrency);
+    }
+}
+
+function getFallbackRate(currency) {
+    const fallbackRates = {
+        'UGX': 3700,
+        'KES': 150,
+        'TZS': 2500,
+        'USD': 1,
+        'GBP': 0.79,
+        'EUR': 0.85
+        // Add more fallback rates as needed
+    };
+    return fallbackRates[currency] || 1;
+}
+
 const budgetRanges = {
     '+256': { // Uganda
         currency: 'UGX',
-        symbol: '₩',
+        symbol: 'UGX',
         ranges: [
-            { value: '500000-1000000', label: '₩500,000 - ₩1,000,000' },
-            { value: '1000000-2000000', label: '₩1,000,000 - ₩2,000,000' },
-            { value: '2000000-5000000', label: '₩2,000,000 - ₩5,000,000' },
-            { value: '5000000+', label: 'Above ₩5,000,000' }
+            { value: '500000-1000000', label: '500,000 - 1,000,000' },
+            { value: '1000000-2000000', label: '1,000,000 - 2,000,000' },
+            { value: '2000000-5000000', label: '2,000,000 - 5,000,000' },
+            { value: '5000000+', label: 'Above 5,000,000' }
         ]
     },
-    '+1': { // USA
-        currency: 'USD',
-        symbol: '$',
+    '+254': { // Kenya
+        currency: 'KES',
+        symbol: 'KSh',
         ranges: [
-            { value: '1000-3000', label: '$1,000 - $3,000' },
-            { value: '3000-5000', label: '$3,000 - $5,000' },
-            { value: '5000-10000', label: '$5,000 - $10,000' },
-            { value: '10000+', label: 'Above $10,000' }
+            { value: '50000-100000', label: '50,000 - 100,000' },
+            { value: '100000-200000', label: '100,000 - 200,000' },
+            { value: '200000-500000', label: '200,000 - 500,000' },
+            { value: '500000+', label: 'Above 500,000' }
         ]
-    },
-    // Add more countries as needed
+    }
 };
 
-function updateCountryInfo(countryCode) {
-    const select = document.getElementById('countryCode');
-    const selectedOption = select.options[select.selectedIndex];
-    const country = selectedOption.getAttribute('data-country');
-    
-    // Update country info display
-    document.getElementById('countryInfo').innerHTML = `<i class="fas fa-globe-americas"></i> Selected: ${country}`;
-    document.getElementById('countryLocation').textContent = `Your location: ${country}`;
-    
-    // Update budget ranges
+async function updateBudgetRanges(countryCode) {
     const budgetSelect = document.getElementById('budget');
     const currencyLabel = document.getElementById('currencyLabel');
+    const exchangeRateElement = document.getElementById('exchangeRate');
     
     // Get budget data for selected country
-    const budgetData = budgetRanges[countryCode] || budgetRanges['+256']; // Default to Uganda if country not found
+    const budgetData = budgetRanges[countryCode] || budgetRanges['+256'];
     
     // Update currency label
     currencyLabel.textContent = budgetData.currency;
     
+    // Get exchange rate
+    const rate = await getExchangeRate(budgetData.currency);
+    if (rate) {
+        exchangeRateElement.innerHTML = `<i class="fas fa-exchange-alt"></i> 1 USD = ${rate.toFixed(2)} ${budgetData.currency} (Updated: ${new Date().toLocaleDateString()})`;
+    } else {
+        exchangeRateElement.innerHTML = `<i class="fas fa-exclamation-circle"></i> Exchange rate unavailable`;
+    }
+    
     // Clear existing options
     budgetSelect.innerHTML = '<option value="">Select Budget Range</option>';
     
-    // Add new options
+    // Add new options with USD equivalent
     budgetData.ranges.forEach(range => {
         const option = document.createElement('option');
         option.value = range.value;
-        option.textContent = range.label;
+        
+        // Calculate USD equivalent if exchange rate is available
+        if (rate) {
+            const [min, max] = range.value.split('-').map(v => v.replace(/\+$/, ''));
+            const minUSD = (parseFloat(min) / rate).toFixed(2);
+            const maxUSD = max ? (parseFloat(max) / rate).toFixed(2) : null;
+            
+            option.textContent = `${budgetData.symbol} ${range.label} (≈ USD ${minUSD}${maxUSD ? ` - ${maxUSD}` : '+'})`;
+        } else {
+            option.textContent = `${budgetData.symbol} ${range.label}`;
+        }
+        
         budgetSelect.appendChild(option);
     });
+}
+
+// Update the existing updateCountryInfo function
+const originalUpdateCountryInfo = updateCountryInfo;
+function updateCountryInfo(countryCode) {
+    originalUpdateCountryInfo(countryCode);
+    updateBudgetRanges(countryCode);
 }
 
 // Initialize on page load
@@ -784,6 +866,17 @@ function updateCountryInfo(countryCode) {
     margin-top: 0.25rem;
     font-size: 0.875rem;
     color: #6c757d;
+}
+
+#exchangeRate {
+    display: block;
+    margin-top: 0.5rem;
+    color: #666;
+}
+
+#exchangeRate i {
+    margin-right: 0.5rem;
+    color: #1a237e;
 }
 </style>
 
@@ -964,59 +1057,140 @@ function updateCountryInfo(countryCode) {
 </style>
 
 <script>
+// Add this at the top of your script
+let exchangeRateCache = {};
+const CACHE_DURATION = 3600000; // 1 hour in milliseconds
+
+async function getExchangeRate(fromCurrency, toCurrency = 'USD') {
+    const cacheKey = `${fromCurrency}_${toCurrency}`;
+    
+    // Check cache first
+    if (exchangeRateCache[cacheKey] && 
+        (Date.now() - exchangeRateCache[cacheKey].timestamp) < CACHE_DURATION) {
+        return exchangeRateCache[cacheKey].rate;
+    }
+
+    // Show loading state
+    document.getElementById('exchangeRate').innerHTML = 
+        '<i class="fas fa-sync fa-spin"></i> Fetching latest exchange rates...';
+
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+        const response = await fetch(
+            `https://api.exchangerate-api.com/v4/latest/${toCurrency}`,
+            { signal: controller.signal }
+        );
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error('Exchange rate service unavailable');
+
+        const data = await response.json();
+        const rate = data.rates[fromCurrency];
+
+        if (rate) {
+            // Cache the result
+            exchangeRateCache[cacheKey] = {
+                rate: rate,
+                timestamp: Date.now()
+            };
+            return rate;
+        }
+        throw new Error('Currency not found');
+    } catch (error) {
+        console.error('Error fetching exchange rate:', error);
+        document.getElementById('exchangeRate').innerHTML = 
+            '<i class="fas fa-exclamation-circle"></i> Could not fetch exchange rate. Using estimated rates.';
+        
+        // Return cached rate if available, otherwise fallback rates
+        return exchangeRateCache[cacheKey]?.rate || getFallbackRate(fromCurrency);
+    }
+}
+
+function getFallbackRate(currency) {
+    const fallbackRates = {
+        'UGX': 3700,
+        'KES': 150,
+        'TZS': 2500,
+        'USD': 1,
+        'GBP': 0.79,
+        'EUR': 0.85
+        // Add more fallback rates as needed
+    };
+    return fallbackRates[currency] || 1;
+}
+
 const budgetRanges = {
     '+256': { // Uganda
         currency: 'UGX',
-        symbol: '₩',
+        symbol: 'UGX',
         ranges: [
-            { value: '500000-1000000', label: '₩500,000 - ₩1,000,000' },
-            { value: '1000000-2000000', label: '₩1,000,000 - ₩2,000,000' },
-            { value: '2000000-5000000', label: '₩2,000,000 - ₩5,000,000' },
-            { value: '5000000+', label: 'Above ₩5,000,000' }
+            { value: '500000-1000000', label: '500,000 - 1,000,000' },
+            { value: '1000000-2000000', label: '1,000,000 - 2,000,000' },
+            { value: '2000000-5000000', label: '2,000,000 - 5,000,000' },
+            { value: '5000000+', label: 'Above 5,000,000' }
         ]
     },
-    '+1': { // USA
-        currency: 'USD',
-        symbol: '$',
+    '+254': { // Kenya
+        currency: 'KES',
+        symbol: 'KSh',
         ranges: [
-            { value: '1000-3000', label: '$1,000 - $3,000' },
-            { value: '3000-5000', label: '$3,000 - $5,000' },
-            { value: '5000-10000', label: '$5,000 - $10,000' },
-            { value: '10000+', label: 'Above $10,000' }
+            { value: '50000-100000', label: '50,000 - 100,000' },
+            { value: '100000-200000', label: '100,000 - 200,000' },
+            { value: '200000-500000', label: '200,000 - 500,000' },
+            { value: '500000+', label: 'Above 500,000' }
         ]
-    },
-    // Add more countries as needed
+    }
 };
 
-function updateCountryInfo(countryCode) {
-    const select = document.getElementById('countryCode');
-    const selectedOption = select.options[select.selectedIndex];
-    const country = selectedOption.getAttribute('data-country');
-    
-    // Update country info display
-    document.getElementById('countryInfo').innerHTML = `<i class="fas fa-globe-americas"></i> Selected: ${country}`;
-    document.getElementById('countryLocation').textContent = `Your location: ${country}`;
-    
-    // Update budget ranges
+async function updateBudgetRanges(countryCode) {
     const budgetSelect = document.getElementById('budget');
     const currencyLabel = document.getElementById('currencyLabel');
+    const exchangeRateElement = document.getElementById('exchangeRate');
     
     // Get budget data for selected country
-    const budgetData = budgetRanges[countryCode] || budgetRanges['+256']; // Default to Uganda if country not found
+    const budgetData = budgetRanges[countryCode] || budgetRanges['+256'];
     
     // Update currency label
     currencyLabel.textContent = budgetData.currency;
     
+    // Get exchange rate
+    const rate = await getExchangeRate(budgetData.currency);
+    if (rate) {
+        exchangeRateElement.innerHTML = `<i class="fas fa-exchange-alt"></i> 1 USD = ${rate.toFixed(2)} ${budgetData.currency} (Updated: ${new Date().toLocaleDateString()})`;
+    } else {
+        exchangeRateElement.innerHTML = `<i class="fas fa-exclamation-circle"></i> Exchange rate unavailable`;
+    }
+    
     // Clear existing options
     budgetSelect.innerHTML = '<option value="">Select Budget Range</option>';
     
-    // Add new options
+    // Add new options with USD equivalent
     budgetData.ranges.forEach(range => {
         const option = document.createElement('option');
         option.value = range.value;
-        option.textContent = range.label;
+        
+        // Calculate USD equivalent if exchange rate is available
+        if (rate) {
+            const [min, max] = range.value.split('-').map(v => v.replace(/\+$/, ''));
+            const minUSD = (parseFloat(min) / rate).toFixed(2);
+            const maxUSD = max ? (parseFloat(max) / rate).toFixed(2) : null;
+            
+            option.textContent = `${budgetData.symbol} ${range.label} (≈ USD ${minUSD}${maxUSD ? ` - ${maxUSD}` : '+'})`;
+        } else {
+            option.textContent = `${budgetData.symbol} ${range.label}`;
+        }
+        
         budgetSelect.appendChild(option);
     });
+}
+
+// Update the existing updateCountryInfo function
+const originalUpdateCountryInfo = updateCountryInfo;
+function updateCountryInfo(countryCode) {
+    originalUpdateCountryInfo(countryCode);
+    updateBudgetRanges(countryCode);
 }
 
 // Initialize on page load
@@ -1295,5 +1469,16 @@ function updateCountryInfo(countryCode) {
     margin-top: 0.25rem;
     font-size: 0.875rem;
     color: #6c757d;
+}
+
+#exchangeRate {
+    display: block;
+    margin-top: 0.5rem;
+    color: #666;
+}
+
+#exchangeRate i {
+    margin-right: 0.5rem;
+    color: #1a237e;
 }
 </style>
