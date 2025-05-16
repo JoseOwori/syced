@@ -7,29 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Contact Synced Creative Agency in Kampala, Uganda for professional web development, digital marketing, and IT solutions. Get in touch with our expert team for custom website design, e-commerce development, and digital transformation services." />
-  <meta name="keywords" content="contact web developer uganda, digital agency kampala contacts, web design company uganda, IT services contact kampala, website development inquiry, digital marketing agency contacts, web solutions uganda, professional web designers kampala, contact IT consultants uganda, web development consultation, digital agency phone number, website design quotes kampala" />
-  <meta name="author" content="Synced Creative Agency" />
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Contact Synced Creative Agency | Web Development & Digital Services Uganda" />
-  <meta property="og:description" content="Get in touch with Synced Creative Agency for professional web development and digital services in Kampala, Uganda. Request a callback for custom website design, e-commerce solutions, and IT services." />
-  <meta property="og:image" content="https://syncedcreativeagency.cc/images/logo-clear.png" />
-  <meta property="og:url" content="https://syncedcreativeagency.cc/contact.html" />
-  <meta property="og:type" content="website" />
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@MattOwori" />
-  <meta name="twitter:title" content="Contact Us - Web Development Services in Uganda" />
-  <meta name="twitter:description" content="Reach out to Synced Creative Agency for professional web development and digital services in Kampala. Expert solutions for your online presence." />
-  <meta name="twitter:image" content="https://syncedcreativeagency.cc/images/logo-clear.png" />
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://syncedcreativeagency.cc/contact.html" />
-  
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
   <title>Contact Synced Creative Agency | Digital Marketing & Web Design Services in Uganda</title>
 
   <!-- Favicon -->
@@ -103,8 +85,8 @@
             <form name="sentMessage" id="contactForm" novalidate="novalidate">
               <div class="form-group">
                 <label for="name" class="sr-only">Full Name</label>
-                <input type="text" placeholder="Full Name" class="form-control" id="name" required aria-required="true"
-                  aria-label="Full Name" />
+                <input type="text" placeholder="Full Name" class="form-control" id="name" required 
+                       aria-required="true" aria-label="Full Name"/>
                 <div class="invalid-feedback">Please enter your name</div>
               </div>
               <div class="form-group">
@@ -137,10 +119,16 @@
         <div class="col-md-6 col-lg-7 px-0">
           <div class="map_container">
             <div class="map">
-              <iframe title="Office Location" width="100%" height="550" frameborder="0" style="border:0" loading="lazy"
+              <iframe 
+                title="Office Location"
+                width="100%" 
+                height="550" 
+                frameborder="0" 
+                style="border:0"
+                loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=KCCA%20Building,%20Wandegeya,%20South%20Wing%20Level%203+(Synced%20Creative%20Agency)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
-                  href="https://www.gps.ie/">
+                    href="https://www.gps.ie/">
               </iframe>
             </div>
           </div>
@@ -199,10 +187,9 @@
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   <span> Call +256 393 24 2000 </span>
                 </a>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <a href="mailto:syncedcreative@gmail.com" class="text-white email-link"
-                  style="text-decoration: none; transition: color 0.3s ease;">syncedcreative@gmail.com</a>
-              </a>
+                <a href="">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <span> syncedcreative@gmail.com </span>
                 </a>
               </div>
             </div>
@@ -248,20 +235,20 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       const form = $("#contactForm");
       const submitButton = $("#sendMessageButton");
       const buttonText = submitButton.find('.button-text');
       const spinner = submitButton.find('.spinner-border');
-
-      form.on('submit', function (e) {
+      
+      form.on('submit', function(e) {
         e.preventDefault();
-
+        
         // Show loading state
         buttonText.addClass('d-none');
         spinner.removeClass('d-none');
         submitButton.prop('disabled', true);
-
+        
         const formData = {
           name: $("#name").val().trim(),
           email: $("#email").val().trim(),
@@ -273,7 +260,7 @@
           url: "https://email-sender-1-8xvf.onrender.com/send-email/",
           type: "POST",
           contentType: "application/json",
-          data: JSON.stringify(formData),
+          data: JSON.stringify(data),
           success: function (response) {
             console.log("Email sent successfully:", response);
             $("#success").html("<div class='alert alert-success'>");
