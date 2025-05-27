@@ -4,31 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Get a customized quote for your web development, IT solutions, and digital marketing needs from Synced Creative Agency in Kampala, Uganda. Professional website design, hosting, and maintenance services tailored to your business requirements." />
-  <meta name="keywords" content="web design quote uganda, website cost kampala, web development pricing, IT services quote, digital marketing rates, website maintenance costs, professional web design uganda, affordable web solutions kampala, custom website quotation, web hosting prices uganda, business website packages, ecommerce website cost, digital agency pricing, web development consultation" />
-  <meta name="author" content="Synced Creative Agency" />
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Get a Quote - Web Development & IT Services | Synced Creative Agency" />
-  <meta property="og:description" content="Request a customized quote for professional web development, hosting, and IT services in Uganda. Tailored solutions for your business needs from Synced Creative Agency." />
-  <meta property="og:image" content="https://syncedcreativeagency.cc/images/logo-clear.png" />
-  <meta property="og:url" content="https://syncedcreativeagency.cc/getQuote.html" />
-  <meta property="og:type" content="website" />
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@MattOwori" />
-  <meta name="twitter:title" content="Request a Quote - Professional Web Services in Uganda" />
-  <meta name="twitter:description" content="Get a personalized quote for web development, hosting, and IT services. Professional digital solutions for your business in Kampala, Uganda." />
-  <meta name="twitter:image" content="https://syncedcreativeagency.cc/images/logo-clear.png" />
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://syncedcreativeagency.cc/getQuote.html" />
-  
-  <title>Get a Quote - Professional Web Development & IT Services | Synced Creative Agency Uganda</title>
-  
+  <title>Service Quotation Checklist with VAT</title>
   <!-- Favicon -->
   <link href="images/favicon.ico" rel="icon" />
 
@@ -156,553 +132,160 @@
 
 
   <div class="container d-flex justify-content-center mt-5 mb-5">
-    <div class="card" style="width: 100%; max-width: 800px;">
-      <div class="card-header bg-primary text-white">
-          <h3 class="mb-0">Request a Quote</h3>
-          <p class="mb-0">Fill out the form below and we'll get back to you with a customized solution</p>
-      </div>
+    <div class="card" style="width: 100%; max-width: 600px;">
       <div class="card-body">
-          <form class="needs-validation" id="contact_form" onsubmit="sendEmail(event)" novalidate>
-              <!-- Step 1: Contact Information -->
-              <div class="step-section mb-4">
-                  <h4 class="mb-3"><i class="fas fa-user"></i> Contact Information</h4>
-                  <div class="row g-3">
-                      <div class="col-sm-6">
-                          <label class="form-label" for="firstName">First Name *</label>
-                          <input type="text" class="form-control" id="firstName" name="first_name" required>
-                          <div class="invalid-feedback">First name is required</div>
-                      </div>
-                      <div class="col-sm-6">
-                          <label class="form-label" for="lastName">Last Name *</label>
-                          <input type="text" class="form-control" id="lastName" name="last_name" required>
-                          <div class="invalid-feedback">Last name is required</div>
-                      </div>
-                      <div class="col-sm-6">
-                          <label class="form-label" for="email">Email Address *</label>
-                          <input type="email" class="form-control" id="email" name="email" required>
-                          <div class="invalid-feedback">Please enter a valid email address</div>
-                      </div>
-                      <div class="col-sm-6">
-                          <label class="form-label" for="phone">Phone Number *</label>
-                          <div class="input-group">
-                              <select class="form-select" id="countryCode" name="countryCode" style="max-width: 150px;" required onchange="updateCountryInfo(this.value)">
-                                  <option value="+256" data-country="Uganda">Uganda (+256)</option>
-                                  <option value="+254" data-country="Kenya">Kenya (+254)</option>
-                                  <option value="+255" data-country="Tanzania">Tanzania (+255)</option>
-                                  <option value="+250" data-country="Rwanda">Rwanda (+250)</option>
-                                  <option value="+257" data-country="Burundi">Burundi (+257)</option>
-                                  <option value="+1" data-country="United States">USA (+1)</option>
-                                  <option value="+44" data-country="United Kingdom">UK (+44)</option>
-                                  <option value="+91" data-country="India">India (+91)</option>
-                                  <option value="+86" data-country="China">China (+86)</option>
-                                  <option value="+234" data-country="Nigeria">Nigeria (+234)</option>
-                                  <option value="+27" data-country="South Africa">South Africa (+27)</option>
-                                  <option value="+971" data-country="UAE">UAE (+971)</option>
-                                  <option value="+61" data-country="Australia">Australia (+61)</option>
-                                  <option value="+81" data-country="Japan">Japan (+81)</option>
-                                  <option value="+49" data-country="Germany">Germany (+49)</option>
-                                  <option value="+33" data-country="France">France (+33)</option>
-                                  <option value="+39" data-country="Italy">Italy (+39)</option>
-                                  <option value="+7" data-country="Russia">Russia (+7)</option>
-                                  <option value="+55" data-country="Brazil">Brazil (+55)</option>
-                                  <option value="+52" data-country="Mexico">Mexico (+52)</option>
-                              </select>
-                              <input type="tel" class="form-control" id="phone" name="phone" 
-                                     placeholder="Enter phone number without country code"
-                                     oninput="formatPhoneNumber(this)"
-                                     required>
-                          </div>
-                          <small class="text-muted" id="phoneFormat">Format: Numbers only (7-15 digits)</small>
-                          <small class="text-muted location-info" id="countryInfo"></small>
-                          <div class="invalid-feedback">Please enter a valid phone number</div>
-                      </div>
-                  </div>
+        <form class="well form-horizontal" action=" " method="post" id="contact_form" onsubmit="sendEmail(event)">
+          <fieldset>
+
+            <!-- Form Name -->
+            <legend>Contact Us Today!</legend>
+
+            <div class="row">
+              <!-- First Name -->
+              <div class="form-group col-md-6">
+                <label class="control-label">First Name</label>
+                <input name="first_name" placeholder="First Name" class="form-control" type="text">
               </div>
 
-              <!-- Step 2: Business Details -->
-              <div class="step-section mb-4">
-                  <h4 class="mb-3"><i class="fas fa-building"></i> Business Details</h4>
-                  <div class="row g-3">
-                      <div class="col-12">
-                          <label class="form-label" for="company">Company Name</label>
-                          <input type="text" class="form-control" id="company" name="company">
-                      </div>
-                      <div class="col-12">
-                          <label class="form-label" for="address">Business Address</label>
-                          <input type="text" class="form-control" id="address" name="address">
-                      </div>
-                      <div class="col-12">
-                          <div class="location-details">
-                              <label class="form-label">Country Information</label>
-                              <div class="country-info-card">
-                                  <div class="country-flag" id="countryFlag"></div>
-                                  <div class="country-details">
-                                      <h5 id="countryName">Loading...</h5>
-                                      <p id="countryRegion" class="mb-1">Region: Loading...</p>
-                                      <p id="countryCurrency" class="mb-1">Currency: Loading...</p>
-                                      <p id="countryTimezone" class="mb-0">Timezone: Loading...</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+              <!-- Last Name -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Last Name</label>
+                <input name="last_name" placeholder="Last Name" class="form-control" type="text">
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- E-Mail -->
+              <div class="form-group col-md-6">
+                <label class="control-label">E-Mail</label>
+                <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
               </div>
 
-              <!-- Step 3: Project Requirements -->
-              <div class="step-section mb-4">
-                  <h4 class="mb-3"><i class="fas fa-tasks"></i> Project Requirements</h4>
-                  <div class="row g-3">
-                      <div class="col-md-6">
-                          <label class="form-label">Type of Website Needed *</label>
-                          <div class="website-type-cards">
-                              <div class="form-check card-check">
-                                  <input class="form-check-input" type="radio" name="websiteType" id="corporate" value="corporate" required>
-                                  <label class="form-check-label card-label" for="corporate">
-                                      <i class="fas fa-briefcase"></i>
-                                      <span>Corporate Website</span>
-                                  </label>
-                              </div>
-                              <div class="form-check card-check">
-                                  <input class="form-check-input" type="radio" name="websiteType" id="ecommerce" value="ecommerce">
-                                  <label class="form-check-label card-label" for="ecommerce">
-                                      <i class="fas fa-shopping-cart"></i>
-                                      <span>E-commerce Website</span>
-                                  </label>
-                              </div>
-                              <div class="form-check card-check">
-                                  <input class="form-check-input" type="radio" name="websiteType" id="portfolio" value="portfolio">
-                                  <label class="form-check-label card-label" for="portfolio">
-                                      <i class="fas fa-image"></i>
-                                      <span>Portfolio Website</span>
-                                  </label>
-                              </div>
-                              <div class="form-check card-check">
-                                  <input class="form-check-input" type="radio" name="websiteType" id="other" value="other">
-                                  <label class="form-check-label card-label" for="other">
-                                      <i class="fas fa-plus"></i>
-                                      <span>Other</span>
-                                  </label>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-6">
-                          <label class="form-label">Additional Services</label>
-                          <div class="services-cards">
-                              <div class="form-check card-check">
-                                  <input class="form-check-input" type="checkbox" name="services[]" id="hosting" value="hosting">
-                                  <label class="form-check-label card-label" for="hosting">
-                                      <i class="fas fa-server"></i>
-                                      <span>Web Hosting</span>
-                                  </label>
-                              </div>
-                              <div class="form-check card-check">
-                                  <input class="form-check-input" type="checkbox" name="services[]" id="maintenance" value="maintenance">
-                                  <label class="form-check-label card-label" for="maintenance">
-                                      <i class="fas fa-tools"></i>
-                                      <span>Website Maintenance</span>
-                                  </label>
-                              </div>
-                              <div class="form-check card-check">
-                                  <input class="form-check-input" type="checkbox" name="services[]" id="seo" value="seo">
-                                  <label class="form-check-label card-label" for="seo">
-                                      <i class="fas fa-search"></i>
-                                      <span>SEO Services</span>
-                                  </label>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+              <!-- Phone # -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Phone #</label>
+                <input name="phone" placeholder="(256)3932-42000" class="form-control" type="text">
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Address -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Address</label>
+                <input name="address" placeholder="Address" class="form-control" type="text">
               </div>
 
-              <!-- Step 4: Budget & Description -->
-              <div class="step-section mb-4">
-                  <h4 class="mb-3"><i class="fas fa-dollar-sign"></i> Budget & Project Details</h4>
-                  <div class="row g-3">
-                      <div class="col-md-6">
-                          <label class="form-label" for="budget">Estimated Budget (<span id="currencyLabel">UGX</span>)</label>
-                          <select class="form-select" id="budget" name="budget">
-                              <option value="">Select Budget Range</option>
-                          </select>
-                          <small class="text-muted" id="exchangeRate">Loading exchange rate...</small>
-                      </div>
-                      <div class="col-12">
-                          <label class="form-label" for="projectDescription">Project Description *</label>
-                          <textarea class="form-control" id="projectDescription" name="projectDescription" rows="4" required
-                                  placeholder="Please describe your project requirements, goals, and any specific features you need..."></textarea>
-                          <div class="invalid-feedback">Please provide a project description</div>
-                      </div>
-                  </div>
+              <!-- City -->
+              <div class="form-group col-md-6">
+                <label class="control-label">City</label>
+                <input name="city" placeholder="City" class="form-control" type="text">
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- State -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Region</label>
+                <select name="state" class="form-control selectpicker">
+                  <option value=" ">Please select your region</option>
+                  <option>Arua</option>
+                  <option>Bushenyi</option>
+                  <option>Entebbe</option>
+                  <option>Fort Portal</option>
+                  <option>Gulu</option>
+                  <option>Hoima</option>
+                  <option>Iganga</option>
+                  <option>Jinja</option>
+                  <option>Kabale</option>
+                  <option>Kampala</option>
+                  <option>Kitgum</option>
+                  <option>Kira</option>
+                  <option>Lira</option>
+                  <option>Masaka</option>
+                  <option>Mbale</option>
+                  <option>Mbarara</option>
+                  <option>Mukono</option>
+                  <option>Nansana</option>
+                  <option>Soroti</option>
+                  <option>Tororo</option>
+                </select>
               </div>
 
-              <div class="alert alert-success" role="alert" id="success_message" style="display: none;">
-                  <i class="fas fa-check-circle"></i> Thank you for your inquiry! We'll review your requirements and get back to you within 24 hours.
+              <!-- Zip Code -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Zip Code</label>
+                <input name="zip" placeholder="Zip Code" class="form-control" type="text">
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Website or domain name -->
+              <div class="form-group col-md-6">
+                <label class="control-label">What type of website do you require for your needs?</label>
+                <input name="website" placeholder="Website or domain name" class="form-control" type="text">
               </div>
 
-              <button class="btn btn-primary btn-lg w-100" type="submit" id="submitButton">
-                  <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                  <span class="button-text">Submit Quote Request</span>
-              </button>
-          </form>
+              <!-- Do you have hosting? -->
+              <div class="form-group col-md-6">
+                <label class="control-label">Do you need web hosting and maintenance services?</label>
+                <div>
+                  <label><input type="radio" name="hosting" value="yes" /> Yes</label>
+                  <label><input type="radio" name="hosting" value="no" /> No</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Project Description -->
+              <div class="form-group col-md-12">
+                <label class="control-label">Project Description</label>
+                <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
+              </div>
+            </div>
+
+            <!-- Success message -->
+            <div class="alert alert-success" role="alert" id="success_message" style="display: none;">Success <i
+                class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you
+              shortly.</div>
+
+            <!-- Button -->
+            <div class="form-group">
+              <div>
+                <button type="submit" class="btn btn-warning">Send <span
+                    class="glyphicon glyphicon-send"></span></button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
+        <script>
+          function sendEmail(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('contact_form');
+            const formData = new FormData(form);
+
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+              data[key] = value;
+            }
+
+            emailjs.send('service_to6e4rh', 'template_sb2tpdf', data)
+              .then((result) => {
+                document.getElementById('success_message').style.display = 'block';
+                console.log(result.text);
+                form.reset();
+              }, (error) => {
+                alert('Failed to send email. Please try again later.');
+                console.log(error.text);
+              });
+          }
+        </script>
       </div>
+    </div>
   </div>
-</div>
-
-<style>
-.card {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    border: none;
-    border-radius: 15px;
-}
-
-.card-header {
-    background: linear-gradient(45deg, #1a237e, #283593);
-    border-radius: 15px 15px 0 0;
-    padding: 2rem;
-}
-
-.step-section {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-}
-
-.step-section h4 {
-    color: #1a237e;
-    margin-bottom: 1.5rem;
-}
-
-.step-section h4 i {
-    margin-right: 0.5rem;
-}
-
-.form-label {
-    font-weight: 500;
-    color: #2c3e50;
-}
-
-.website-type-cards, .services-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.card-check {
-    margin: 0;
-}
-
-.card-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.card-label:hover {
-    border-color: #1a237e;
-    transform: translateY(-2px);
-}
-
-.card-label i {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #1a237e;
-}
-
-.form-check-input:checked + .card-label {
-    background: #e8eaf6;
-    border-color: #1a237e;
-}
-
-.btn-primary {
-    background: linear-gradient(45deg, #1a237e, #283593);
-    border: none;
-    padding: 1rem;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-.location-info {
-    margin-top: 0.5rem;
-    color: #6c757d;
-}
-
-.alert-info {
-    background-color: #e8eaf6;
-    border-color: #c5cae9;
-    color: #1a237e;
-}
-
-.alert-info i {
-    margin-right: 0.5rem;
-}
-
-@media (max-width: 768px) {
-    .website-type-cards, .services-cards {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
-
-<script>
-// Add this at the top of your script
-let exchangeRateCache = {};
-const CACHE_DURATION = 3600000; // 1 hour in milliseconds
-
-async function getExchangeRate(fromCurrency, toCurrency = 'USD') {
-    const cacheKey = `${fromCurrency}_${toCurrency}`;
-    
-    // Check cache first
-    if (exchangeRateCache[cacheKey] && 
-        (Date.now() - exchangeRateCache[cacheKey].timestamp) < CACHE_DURATION) {
-        return exchangeRateCache[cacheKey].rate;
-    }
-
-    // Show loading state
-    document.getElementById('exchangeRate').innerHTML = 
-        '<i class="fas fa-sync fa-spin"></i> Fetching latest exchange rates...';
-
-    try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
-
-        const response = await fetch(
-            `https://api.exchangerate-api.com/v4/latest/${toCurrency}`,
-            { signal: controller.signal }
-        );
-        clearTimeout(timeoutId);
-
-        if (!response.ok) throw new Error('Exchange rate service unavailable');
-
-        const data = await response.json();
-        const rate = data.rates[fromCurrency];
-
-        if (rate) {
-            // Cache the result
-            exchangeRateCache[cacheKey] = {
-                rate: rate,
-                timestamp: Date.now()
-            };
-            return rate;
-        }
-        throw new Error('Currency not found');
-    } catch (error) {
-        console.error('Error fetching exchange rate:', error);
-        document.getElementById('exchangeRate').innerHTML = 
-            '<i class="fas fa-exclamation-circle"></i> Could not fetch exchange rate. Using estimated rates.';
-        
-        // Return cached rate if available, otherwise fallback rates
-        return exchangeRateCache[cacheKey]?.rate || getFallbackRate(fromCurrency);
-    }
-}
-
-function getFallbackRate(currency) {
-    const fallbackRates = {
-        'UGX': 3700,
-        'KES': 150,
-        'TZS': 2500,
-        'USD': 1,
-        'GBP': 0.79,
-        'EUR': 0.85
-        // Add more fallback rates as needed
-    };
-    return fallbackRates[currency] || 1;
-}
-
-const budgetRanges = {
-    '+256': { // Uganda
-        currency: 'UGX',
-        symbol: 'UGX',
-        ranges: [
-            { value: '500000-1000000', label: '500,000 - 1,000,000' },
-            { value: '1000000-2000000', label: '1,000,000 - 2,000,000' },
-            { value: '2000000-5000000', label: '2,000,000 - 5,000,000' },
-            { value: '5000000+', label: 'Above 5,000,000' }
-        ]
-    },
-    '+254': { // Kenya
-        currency: 'KES',
-        symbol: 'KSh',
-        ranges: [
-            { value: '50000-100000', label: '50,000 - 100,000' },
-            { value: '100000-200000', label: '100,000 - 200,000' },
-            { value: '200000-500000', label: '200,000 - 500,000' },
-            { value: '500000+', label: 'Above 500,000' }
-        ]
-    }
-};
-
-async function updateBudgetRanges(countryCode) {
-    const budgetSelect = document.getElementById('budget');
-    const currencyLabel = document.getElementById('currencyLabel');
-    const exchangeRateElement = document.getElementById('exchangeRate');
-    
-    // Get budget data for selected country
-    const budgetData = budgetRanges[countryCode] || budgetRanges['+256'];
-    
-    // Update currency label
-    currencyLabel.textContent = budgetData.currency;
-    
-    // Get exchange rate
-    const rate = await getExchangeRate(budgetData.currency);
-    if (rate) {
-        exchangeRateElement.innerHTML = `<i class="fas fa-exchange-alt"></i> 1 USD = ${rate.toFixed(2)} ${budgetData.currency} (Updated: ${new Date().toLocaleDateString()})`;
-    } else {
-        exchangeRateElement.innerHTML = `<i class="fas fa-exclamation-circle"></i> Exchange rate unavailable`;
-    }
-    
-    // Clear existing options
-    budgetSelect.innerHTML = '<option value="">Select Budget Range</option>';
-    
-    // Add new options with USD equivalent
-    budgetData.ranges.forEach(range => {
-        const option = document.createElement('option');
-        option.value = range.value;
-        
-        // Calculate USD equivalent if exchange rate is available
-        if (rate) {
-            const [min, max] = range.value.split('-').map(v => v.replace(/\+$/, ''));
-            const minUSD = (parseFloat(min) / rate).toFixed(2);
-            const maxUSD = max ? (parseFloat(max) / rate).toFixed(2) : null;
-            
-            option.textContent = `${budgetData.symbol} ${range.label} (≈ USD ${minUSD}${maxUSD ? ` - ${maxUSD}` : '+'})`;
-        } else {
-            option.textContent = `${budgetData.symbol} ${range.label}`;
-        }
-        
-        budgetSelect.appendChild(option);
-    });
-}
-
-// Update the existing updateCountryInfo function
-const originalUpdateCountryInfo = updateCountryInfo;
-function updateCountryInfo(countryCode) {
-    originalUpdateCountryInfo(countryCode);
-    updateBudgetRanges(countryCode);
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-    updateCountryInfo(document.getElementById('countryCode').value);
-});
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script>
-function generatePDF(formData) {
-    const content = `
-        <div style="padding: 20px; font-family: Arial, sans-serif;">
-            <h2>Quote Request Details</h2>
-            <hr>
-            <h3>Personal Information</h3>
-            <p><strong>Name:</strong> ${formData.first_name} ${formData.last_name}</p>
-            <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Phone:</strong> ${formData.phone}</p>
-            
-            <h3>Business Information</h3>
-            <p><strong>Company:</strong> ${formData.company || 'N/A'}</p>
-            <p><strong>Address:</strong> ${formData.address || 'N/A'}</p>
-            <p><strong>City:</strong> ${formData.city}</p>
-            <p><strong>Region:</strong> ${formData.region}</p>
-            
-            <h3>Project Requirements</h3>
-            <p><strong>Website Type:</strong> ${formData.websiteType}</p>
-            <p><strong>Budget Range:</strong> ${formData.budget || 'Not specified'}</p>
-            <p><strong>Project Description:</strong></p>
-            <p>${formData.projectDescription}</p>
-            
-            <h3>Additional Services Requested</h3>
-            <p>${Array.isArray(formData.services) ? formData.services.join(', ') : 'None selected'}</p>
-            
-            <hr>
-            <p><em>Generated on ${new Date().toLocaleString()}</em></p>
-        </div>
-    `;
-
-    const element = document.createElement('div');
-    element.innerHTML = content;
-    document.body.appendChild(element);
-
-    const opt = {
-        margin: 1,
-        filename: `quote-request-${formData.first_name}-${formData.last_name}.pdf`,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(element).save().then(() => {
-        document.body.removeChild(element);
-    });
-
-    return content;
-}
-
-function sendEmail(event) {
-    event.preventDefault();
-    
-    const form = document.getElementById('contact_form');
-    if (!form.checkValidity()) {
-        form.classList.add('was-validated');
-        return;
-    }
-
-    const submitButton = document.getElementById('submitButton');
-    const buttonText = submitButton.querySelector('.button-text');
-    const spinner = submitButton.querySelector('.spinner-border');
-    
-    buttonText.style.opacity = '0';
-    spinner.classList.remove('d-none');
-    submitButton.disabled = true;
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Combine country code and phone number
-    data.phone = data.countryCode + data.phone;
-    
-    // Generate PDF content
-    const pdfContent = generatePDF(data);
-    data.pdfContent = pdfContent;
-
-    // Add email recipient
-    data.to_email = "syncedcreative@gmail.com"; // Replace with your email
-
-    emailjs.send('service_to6e4rh', 'template_sb2tpdf', data)
-        .then((result) => {
-            document.getElementById('success_message').style.display = 'block';
-            form.reset();
-            form.classList.remove('was-validated');
-            document.getElementById('success_message').scrollIntoView({ behavior: 'smooth' });
-        })
-        .catch((error) => {
-            alert('Failed to send email. Please try again later.');
-            console.error(error);
-        })
-        .finally(() => {
-            buttonText.style.opacity = '1';
-            spinner.classList.add('d-none');
-            submitButton.disabled = false;
-        });
-}
-
-// Add phone number formatting
-document.getElementById('phone').addEventListener('input', function(e) {
-    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-    e.target.value = !x[2] ? x[1] : !x[3] ? x[1] + '-' + x[2] : x[1] + '-' + x[2] + '-' + x[3];
-});
-</script>
+  </div><!-- /.container -->
 
   <div class="footer_container">
     <!-- info section -->
@@ -756,7 +339,6 @@ document.getElementById('phone').addEventListener('input', function(e) {
               </div>
             </div>
             <div class="info_social">
-              <a href="">
                 <a href="https://www.facebook.com/groups/918986273404331" target="_blank">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
@@ -768,6 +350,9 @@ document.getElementById('phone').addEventListener('input', function(e) {
                 </a>
                 <a href="https://www.instagram.com/syncedcreativeangency/" target="_blank">
                   <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="https://wa.me/+256393242000" target="_blank">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
                 </a>
             </div>
           </div>
@@ -788,6 +373,73 @@ document.getElementById('phone').addEventListener('input', function(e) {
     <!-- footer section -->
   </div>
   </div>
+  <style>
+    /* WhatsApp Button Styles */
+    .float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        left: 40px;  /* Position on left side */
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .float:hover {
+        background-color: #128C7E;
+        color: #FFF;
+        transform: scale(1.1);
+        text-decoration: none;
+    }
+    
+    .my-float {
+        margin: 0;
+    }
+    
+    /* Fix footer spacing */
+    .footer_container {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .footer_section {
+        margin-bottom: 0;
+        padding: 20px 0;
+    }
+    
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .footer_container {
+        margin-top: auto;
+    }
+    
+    /* Remove extra spacing */
+    .container {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .info_section {
+        margin-bottom: 0;
+        padding-bottom: 20px;
+    }
+  </style>
   <a href="https://wa.me/+256393242000" class="float" target="_blank">
     <i class="fab fa-whatsapp my-float"></i>
   </a>
@@ -817,668 +469,3 @@ document.getElementById('phone').addEventListener('input', function(e) {
 </body>
 
 </html>
-
-<script>
-// Add this to your existing JavaScript
-function formatPhoneNumber(input) {
-    // Remove all non-numeric characters
-    let phoneNumber = input.value.replace(/\D/g, '');
-    
-    // Limit the length to 15 digits (international standard)
-    if (phoneNumber.length > 15) {
-        phoneNumber = phoneNumber.slice(0, 15);
-    }
-    
-    // Update the input value
-    input.value = phoneNumber;
-    
-    // Validate the phone number
-    const isValid = phoneNumber.length >= 7 && phoneNumber.length <= 15;
-    input.setCustomValidity(isValid ? '' : 'Please enter a valid phone number');
-    
-    // Update format hint based on country code
-    const countryCode = document.getElementById('countryCode').value;
-    const formatHint = document.getElementById('phoneFormat');
-    
-    switch(countryCode) {
-        case '+256': // Uganda
-            formatHint.textContent = 'Format: 7XXXXXXX (9 digits)';
-            break;
-        case '+1': // USA
-            formatHint.textContent = 'Format: (XXX) XXX-XXXX (10 digits)';
-            break;
-        default:
-            formatHint.textContent = 'Format: Numbers only (7-15 digits)';
-    }
-}
-
-// Update the existing updateCountryInfo function to trigger phone format update
-const originalUpdateCountryInfo = updateCountryInfo;
-function updateCountryInfo(countryCode) {
-    originalUpdateCountryInfo(countryCode);
-    formatPhoneNumber(document.getElementById('phone'));
-}
-</script>
-
-<style>
-#phoneFormat {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    color: #6c757d;
-}
-
-#exchangeRate {
-    display: block;
-    margin-top: 0.5rem;
-    color: #666;
-}
-
-#exchangeRate i {
-    margin-right: 0.5rem;
-    color: #1a237e;
-}
-</style>
-
-<script>
-const countryDetails = {
-    '+256': {
-        name: 'Uganda',
-        region: 'East Africa',
-        currency: 'Ugandan Shilling (UGX)',
-        timezone: 'EAT (UTC+3)',
-        flag: 'https://flagcdn.com/ug.svg'
-    },
-    '+254': {
-        name: 'Kenya',
-        region: 'East Africa',
-        currency: 'Kenyan Shilling (KES)',
-        timezone: 'EAT (UTC+3)',
-        flag: 'https://flagcdn.com/ke.svg'
-    },
-    '+255': {
-        name: 'Tanzania',
-        region: 'East Africa',
-        currency: 'Tanzanian Shilling (TZS)',
-        timezone: 'EAT (UTC+3)',
-        flag: 'https://flagcdn.com/tz.svg'
-    },
-    '+1': {
-        name: 'United States',
-        region: 'North America',
-        currency: 'US Dollar (USD)',
-        timezone: 'Various (UTC-4 to UTC-10)',
-        flag: 'https://flagcdn.com/us.svg'
-    },
-    '+44': {
-        name: 'United Kingdom',
-        region: 'Europe',
-        currency: 'British Pound (GBP)',
-        timezone: 'GMT/BST (UTC+0/+1)',
-        flag: 'https://flagcdn.com/gb.svg'
-    }
-    // Add more countries as needed
-};
-
-function updateCountryInfo(countryCode) {
-    const select = document.getElementById('countryCode');
-    const selectedOption = select.options[select.selectedIndex];
-    const country = selectedOption.getAttribute('data-country');
-    
-    // Get country details
-    const details = countryDetails[countryCode] || {
-        name: country,
-        region: 'Information not available',
-        currency: 'Information not available',
-        timezone: 'Information not available',
-        flag: 'https://flagcdn.com/xx.svg'
-    };
-    
-    // Update country information display
-    document.getElementById('countryName').innerHTML = `<i class="fas fa-globe-americas"></i> ${details.name}`;
-    document.getElementById('countryRegion').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${details.region}`;
-    document.getElementById('countryCurrency').innerHTML = `<i class="fas fa-money-bill-wave"></i> ${details.currency}`;
-    document.getElementById('countryTimezone').innerHTML = `<i class="fas fa-clock"></i> ${details.timezone}`;
-    document.getElementById('countryFlag').style.backgroundImage = `url('${details.flag}')`;
-    
-    // Update other existing functionality
-    document.getElementById('countryInfo').innerHTML = `<i class="fas fa-globe-americas"></i> Selected: ${country}`;
-    document.getElementById('countryLocation').textContent = `Your location: ${country}`;
-    
-    // Update budget ranges
-    updateBudgetRanges(countryCode);
-}
-</script>
-
-<style>
-.card {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    border: none;
-    border-radius: 15px;
-}
-
-.card-header {
-    background: linear-gradient(45deg, #1a237e, #283593);
-    border-radius: 15px 15px 0 0;
-    padding: 2rem;
-}
-
-.step-section {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-}
-
-.step-section h4 {
-    color: #1a237e;
-    margin-bottom: 1.5rem;
-}
-
-.step-section h4 i {
-    margin-right: 0.5rem;
-}
-
-.form-label {
-    font-weight: 500;
-    color: #2c3e50;
-}
-
-.website-type-cards, .services-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.card-check {
-    margin: 0;
-}
-
-.card-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.card-label:hover {
-    border-color: #1a237e;
-    transform: translateY(-2px);
-}
-
-.card-label i {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #1a237e;
-}
-
-.form-check-input:checked + .card-label {
-    background: #e8eaf6;
-    border-color: #1a237e;
-}
-
-.btn-primary {
-    background: linear-gradient(45deg, #1a237e, #283593);
-    border: none;
-    padding: 1rem;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-.location-info {
-    margin-top: 0.5rem;
-    color: #6c757d;
-}
-
-.alert-info {
-    background-color: #e8eaf6;
-    border-color: #c5cae9;
-    color: #1a237e;
-}
-
-.alert-info i {
-    margin-right: 0.5rem;
-}
-
-@media (max-width: 768px) {
-    .website-type-cards, .services-cards {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
-
-<script>
-// Add this at the top of your script
-let exchangeRateCache = {};
-const CACHE_DURATION = 3600000; // 1 hour in milliseconds
-
-async function getExchangeRate(fromCurrency, toCurrency = 'USD') {
-    const cacheKey = `${fromCurrency}_${toCurrency}`;
-    
-    // Check cache first
-    if (exchangeRateCache[cacheKey] && 
-        (Date.now() - exchangeRateCache[cacheKey].timestamp) < CACHE_DURATION) {
-        return exchangeRateCache[cacheKey].rate;
-    }
-
-    // Show loading state
-    document.getElementById('exchangeRate').innerHTML = 
-        '<i class="fas fa-sync fa-spin"></i> Fetching latest exchange rates...';
-
-    try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
-
-        const response = await fetch(
-            `https://api.exchangerate-api.com/v4/latest/${toCurrency}`,
-            { signal: controller.signal }
-        );
-        clearTimeout(timeoutId);
-
-        if (!response.ok) throw new Error('Exchange rate service unavailable');
-
-        const data = await response.json();
-        const rate = data.rates[fromCurrency];
-
-        if (rate) {
-            // Cache the result
-            exchangeRateCache[cacheKey] = {
-                rate: rate,
-                timestamp: Date.now()
-            };
-            return rate;
-        }
-        throw new Error('Currency not found');
-    } catch (error) {
-        console.error('Error fetching exchange rate:', error);
-        document.getElementById('exchangeRate').innerHTML = 
-            '<i class="fas fa-exclamation-circle"></i> Could not fetch exchange rate. Using estimated rates.';
-        
-        // Return cached rate if available, otherwise fallback rates
-        return exchangeRateCache[cacheKey]?.rate || getFallbackRate(fromCurrency);
-    }
-}
-
-function getFallbackRate(currency) {
-    const fallbackRates = {
-        'UGX': 3700,
-        'KES': 150,
-        'TZS': 2500,
-        'USD': 1,
-        'GBP': 0.79,
-        'EUR': 0.85
-        // Add more fallback rates as needed
-    };
-    return fallbackRates[currency] || 1;
-}
-
-const budgetRanges = {
-    '+256': { // Uganda
-        currency: 'UGX',
-        symbol: 'UGX',
-        ranges: [
-            { value: '500000-1000000', label: '500,000 - 1,000,000' },
-            { value: '1000000-2000000', label: '1,000,000 - 2,000,000' },
-            { value: '2000000-5000000', label: '2,000,000 - 5,000,000' },
-            { value: '5000000+', label: 'Above 5,000,000' }
-        ]
-    },
-    '+254': { // Kenya
-        currency: 'KES',
-        symbol: 'KSh',
-        ranges: [
-            { value: '50000-100000', label: '50,000 - 100,000' },
-            { value: '100000-200000', label: '100,000 - 200,000' },
-            { value: '200000-500000', label: '200,000 - 500,000' },
-            { value: '500000+', label: 'Above 500,000' }
-        ]
-    }
-};
-
-async function updateBudgetRanges(countryCode) {
-    const budgetSelect = document.getElementById('budget');
-    const currencyLabel = document.getElementById('currencyLabel');
-    const exchangeRateElement = document.getElementById('exchangeRate');
-    
-    // Get budget data for selected country
-    const budgetData = budgetRanges[countryCode] || budgetRanges['+256'];
-    
-    // Update currency label
-    currencyLabel.textContent = budgetData.currency;
-    
-    // Get exchange rate
-    const rate = await getExchangeRate(budgetData.currency);
-    if (rate) {
-        exchangeRateElement.innerHTML = `<i class="fas fa-exchange-alt"></i> 1 USD = ${rate.toFixed(2)} ${budgetData.currency} (Updated: ${new Date().toLocaleDateString()})`;
-    } else {
-        exchangeRateElement.innerHTML = `<i class="fas fa-exclamation-circle"></i> Exchange rate unavailable`;
-    }
-    
-    // Clear existing options
-    budgetSelect.innerHTML = '<option value="">Select Budget Range</option>';
-    
-    // Add new options with USD equivalent
-    budgetData.ranges.forEach(range => {
-        const option = document.createElement('option');
-        option.value = range.value;
-        
-        // Calculate USD equivalent if exchange rate is available
-        if (rate) {
-            const [min, max] = range.value.split('-').map(v => v.replace(/\+$/, ''));
-            const minUSD = (parseFloat(min) / rate).toFixed(2);
-            const maxUSD = max ? (parseFloat(max) / rate).toFixed(2) : null;
-            
-            option.textContent = `${budgetData.symbol} ${range.label} (≈ USD ${minUSD}${maxUSD ? ` - ${maxUSD}` : '+'})`;
-        } else {
-            option.textContent = `${budgetData.symbol} ${range.label}`;
-        }
-        
-        budgetSelect.appendChild(option);
-    });
-}
-
-// Update the existing updateCountryInfo function
-const originalUpdateCountryInfo = updateCountryInfo;
-function updateCountryInfo(countryCode) {
-    originalUpdateCountryInfo(countryCode);
-    updateBudgetRanges(countryCode);
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-    updateCountryInfo(document.getElementById('countryCode').value);
-});
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script>
-function generatePDF(formData) {
-    const content = `
-        <div style="padding: 20px; font-family: Arial, sans-serif;">
-            <h2>Quote Request Details</h2>
-            <hr>
-            <h3>Personal Information</h3>
-            <p><strong>Name:</strong> ${formData.first_name} ${formData.last_name}</p>
-            <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Phone:</strong> ${formData.phone}</p>
-            
-            <h3>Business Information</h3>
-            <p><strong>Company:</strong> ${formData.company || 'N/A'}</p>
-            <p><strong>Address:</strong> ${formData.address || 'N/A'}</p>
-            <p><strong>City:</strong> ${formData.city}</p>
-            <p><strong>Region:</strong> ${formData.region}</p>
-            
-            <h3>Project Requirements</h3>
-            <p><strong>Website Type:</strong> ${formData.websiteType}</p>
-            <p><strong>Budget Range:</strong> ${formData.budget || 'Not specified'}</p>
-            <p><strong>Project Description:</strong></p>
-            <p>${formData.projectDescription}</p>
-            
-            <h3>Additional Services Requested</h3>
-            <p>${Array.isArray(formData.services) ? formData.services.join(', ') : 'None selected'}</p>
-            
-            <hr>
-            <p><em>Generated on ${new Date().toLocaleString()}</em></p>
-        </div>
-    `;
-
-    const element = document.createElement('div');
-    element.innerHTML = content;
-    document.body.appendChild(element);
-
-    const opt = {
-        margin: 1,
-        filename: `quote-request-${formData.first_name}-${formData.last_name}.pdf`,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(element).save().then(() => {
-        document.body.removeChild(element);
-    });
-
-    return content;
-}
-
-function sendEmail(event) {
-    event.preventDefault();
-    
-    const form = document.getElementById('contact_form');
-    if (!form.checkValidity()) {
-        form.classList.add('was-validated');
-        return;
-    }
-
-    const submitButton = document.getElementById('submitButton');
-    const buttonText = submitButton.querySelector('.button-text');
-    const spinner = submitButton.querySelector('.spinner-border');
-    
-    buttonText.style.opacity = '0';
-    spinner.classList.remove('d-none');
-    submitButton.disabled = true;
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Combine country code and phone number
-    data.phone = data.countryCode + data.phone;
-    
-    // Generate PDF content
-    const pdfContent = generatePDF(data);
-    data.pdfContent = pdfContent;
-
-    // Add email recipient
-    data.to_email = "syncedcreative@gmail.com"; // Replace with your email
-
-    emailjs.send('service_to6e4rh', 'template_sb2tpdf', data)
-        .then((result) => {
-            document.getElementById('success_message').style.display = 'block';
-            form.reset();
-            form.classList.remove('was-validated');
-            document.getElementById('success_message').scrollIntoView({ behavior: 'smooth' });
-        })
-        .catch((error) => {
-            alert('Failed to send email. Please try again later.');
-            console.error(error);
-        })
-        .finally(() => {
-            buttonText.style.opacity = '1';
-            spinner.classList.add('d-none');
-            submitButton.disabled = false;
-        });
-}
-
-// Add phone number formatting
-document.getElementById('phone').addEventListener('input', function(e) {
-    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-    e.target.value = !x[2] ? x[1] : !x[3] ? x[1] + '-' + x[2] : x[1] + '-' + x[2] + '-' + x[3];
-});
-</script>
-
-  <div class="footer_container">
-    <!-- info section -->
-
-    <section class="info_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <div class="info_detail">
-              <!-- <h4>Synced Creative Agency</h4> -->
-              <img src="images/logo-clear.png" alt="Synced Creative Agency Logo" style="max-width: 50%; height: auto;" />
-              <p>
-                A trusted partner for businesses aiming to shine online, distinguished by their
-                commitment to excellence, creativity, and innovation in the digital realm.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-2 mx-auto">
-            <div class="info_link_box">
-              <h4>Links</h4>
-              <div class="info_links">
-                <a class="" href="index.html"> Home </a>
-                <a class="" href="about.html"> About </a>
-                <a class="" href="service.html"> Services </a>
-                <a class="" href="contact.html"> Contact Us </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <h4>Subscribe</h4>
-            <form action="#">
-              <input type="text" placeholder="Enter email" />
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
-          <div class="col-md-6 col-lg-3 mb-0 ml-auto">
-            <div class="info_contact">
-              <h4>Address</h4>
-              <div class="contact_link_box">
-                <a href="">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <span> KCCA Building, Wandegeya, South Wing Level 3 </span>
-                </a>
-                <a href="">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  <span> Call +256 393 24 2000 </span>
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <a href="mailto:syncedcreative@gmail.com" class="text-white email-link"
-                    style="text-decoration: none; transition: color 0.3s ease;">syncedcreative@gmail.com</a>
-                </a>
-              </div>
-            </div>
-            <div class="info_social">
-              <a href="">
-                <a href="https://www.facebook.com/groups/918986273404331" target="_blank">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="https://x.com/MattOwori" target="_blank">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/joseph-owori-17741b1a4/" target="_blank">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.instagram.com/syncedcreativeangency/" target="_blank">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- end info section -->
-
-    <!-- footer section -->
-    <footer class="footer_section">
-      <div class="container">
-        <p>
-          &copy; <span id="displayYear"></span> Synced Creative Agency. All Rights Reserved</a>
-        </p>
-      </div>
-    </footer>
-    <!-- footer section -->
-  </div>
-  </div>
-  <a href="https://wa.me/+256393242000" class="float" target="_blank">
-    <i class="fab fa-whatsapp my-float"></i>
-  </a>
-  <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
-  <script src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-  <!-- End Google Map -->
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
-  <script type="text/javascript">
-    (function () {
-      emailjs.init({
-        publicKey: "7uklBAePSEJbLv1vt",
-      });
-    })();
-  </script>
-</body>
-
-</html>
-
-<script>
-// Add this to your existing JavaScript
-function formatPhoneNumber(input) {
-    // Remove all non-numeric characters
-    let phoneNumber = input.value.replace(/\D/g, '');
-    
-    // Limit the length to 15 digits (international standard)
-    if (phoneNumber.length > 15) {
-        phoneNumber = phoneNumber.slice(0, 15);
-    }
-    
-    // Update the input value
-    input.value = phoneNumber;
-    
-    // Validate the phone number
-    const isValid = phoneNumber.length >= 7 && phoneNumber.length <= 15;
-    input.setCustomValidity(isValid ? '' : 'Please enter a valid phone number');
-    
-    // Update format hint based on country code
-    const countryCode = document.getElementById('countryCode').value;
-    const formatHint = document.getElementById('phoneFormat');
-    
-    switch(countryCode) {
-        case '+256': // Uganda
-            formatHint.textContent = 'Format: 7XXXXXXX (9 digits)';
-            break;
-        case '+1': // USA
-            formatHint.textContent = 'Format: (XXX) XXX-XXXX (10 digits)';
-            break;
-        default:
-            formatHint.textContent = 'Format: Numbers only (7-15 digits)';
-    }
-}
-
-// Update the existing updateCountryInfo function to trigger phone format update
-const originalUpdateCountryInfo = updateCountryInfo;
-function updateCountryInfo(countryCode) {
-    originalUpdateCountryInfo(countryCode);
-    formatPhoneNumber(document.getElementById('phone'));
-}
-</script>
-
-<style>
-#phoneFormat {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    color: #6c757d;
-}
-
-#exchangeRate {
-    display: block;
-    margin-top: 0.5rem;
-    color: #666;
-}
-
-#exchangeRate i {
-    margin-right: 0.5rem;
-    color: #1a237e;
-}
-</style>

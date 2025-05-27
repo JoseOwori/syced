@@ -232,10 +232,6 @@
     <!-- footer section -->
   </div>
 
-  <a href="https://wa.me/+256393242000" class="float" target="_blank">
-    <i class="fab fa-whatsapp my-float"></i>
-  </a>
-
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
@@ -252,3 +248,57 @@
 </body>
 
 </html>
+
+
+<style>
+/* WhatsApp Button Styles */
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;  /* Changed from left to right */
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+}
+
+.my-float {
+    margin: 0;
+}
+
+/* Fix footer spacing */
+.footer_container {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.footer_section {
+    margin-bottom: 0;
+    padding: 20px 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_container {
+    margin-top: auto;
+}
+</style>
