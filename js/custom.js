@@ -16,3 +16,13 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
+
+
+// Initialize the carousel
+$(document).ready(function() {
+    $('#customCarousel1').carousel({
+        interval: 5000,  // Change slide every 5 seconds
+        ride: 'carousel',
+        pause: 'hover'
+    });
+});
