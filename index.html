@@ -92,7 +92,7 @@
                     <h1>Designing, and Hosting</h1>
                     <p>Elevate Your Brand with Expert Designing and Hosting Services</p>
                     <div class="btn-box">
-                      <a href="https://syncedcreativeagency.cc/contact" class="btn1">Contact Us</a>
+                      <a href="contact.html" class="btn1">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -114,7 +114,7 @@
                     <h1>Website Maintenance</h1>
                     <p>Keep Your Website Running Smoothly with Expert Website Maintenance Services</p>
                     <div class="btn-box">
-                      <a href="" class="btn1">Contact Us</a>
+                      <a href="contact.html" class="btn1">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -136,7 +136,7 @@
                     <h1>Microsoft 365 Consultancy Services</h1>
                     <p>Unlock Productivity & Efficiency with Tailored Microsoft 365 Solutions</p>
                     <div class="btn-box">
-                      <a href="" class="btn1">Contact Us</a>
+                      <a href="contact.html" class="btn1">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -176,7 +176,7 @@
           Our Services
         </h2>
         <p>
-          Let’s transform your ideas into reality.
+          Let's transform your ideas into reality.
         </p>
       </div>
       <div class="row">
@@ -852,6 +852,65 @@
     </footer>
     <!-- footer section -->
   </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  
+  <!-- Initialize carousel -->
+  <script>
+    $(document).ready(function() {
+      // Initialize the carousel with options
+      var carousel = $('#customCarousel1');
+      
+      // Set carousel options
+      carousel.carousel({
+        interval: 3000,  // Change slide every 3 seconds
+        wrap: true,      // Continuous loop
+        keyboard: true,  // Enable keyboard navigation
+        pause: 'hover'   // Pause on mouse hover
+      });
+
+      // Force carousel to start
+      carousel.carousel('cycle');
+
+      // Add transition classes
+      carousel.find('.carousel-item').addClass('transition');
+
+      // Handle slide transitions
+      carousel.on('slide.bs.carousel', function () {
+        var activeItem = $(this).find('.carousel-item.active');
+        var nextItem = activeItem.next('.carousel-item');
+        
+        if (!nextItem.length) {
+          nextItem = $(this).find('.carousel-item:first');
+        }
+        
+        activeItem.removeClass('active');
+        nextItem.addClass('active');
+      });
+    });
+  </script>
+
+  <!-- Add transition styles -->
+  <style>
+    .carousel-item {
+      transition: transform .6s ease-in-out;
+    }
+    .carousel-item.active {
+      display: block;
+    }
+    .carousel-item-next:not(.carousel-item-left),
+    .carousel-item-prev:not(.carousel-item-right) {
+      transform: translateX(0);
+    }
+    .carousel-item-next.carousel-item-left,
+    .carousel-item-prev.carousel-item-right {
+      transform: translateX(0);
+    }
+  </style>
+
   <!-- WhatsApp Button -->
   <a href="https://wa.me/256789673356" class="whatsapp-button" target="_blank">
     <i class="fab fa-whatsapp"></i>
@@ -887,15 +946,3 @@
   </style>
   </body>
 </html>
-        <div class="carousel-inner">
-            <!-- ... your existing slides ... -->
-        </div>
-        <!-- Add these controls -->
-        <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
