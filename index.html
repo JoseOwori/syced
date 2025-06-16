@@ -84,7 +84,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img1.png" alt="website, designing, hosting, synced">
+                    <img src="images/slider-img1.png" alt="website, designing, hosting, synced" class="slide-img">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -106,7 +106,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img2.png" alt="website maintenance, hosting, synced">
+                    <img src="images/slider-img2.png" alt="website maintenance, hosting, synced" class="slide-img">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -128,7 +128,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img12.png" alt="microsoft 365">
+                    <img src="images/slider-img12.png" alt="microsoft 365" class="slide-img">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -393,7 +393,7 @@
               <div class="col-md-10 mx-auto">
                 <div class="box">
                   <div class="img-box">
-                    <img src="images/client.jpg" alt="" style="position: relative; z-index: 1;">>
+                    <img src="images/client.jpg" alt="" style="position: relative; z-index: 1;">
                   </div>
                   <div class="detail-box">
                     <div class="client_info">
@@ -884,14 +884,14 @@
         }
         
         // Reset transitions
-        activeItem.find('.detail-box, .img-box').css({
+        activeItem.find('.detail-box').css({
           'opacity': '0',
-          'transform': activeItem.hasClass('carousel-item-next') ? 'translateY(20px)' : 'translateY(-20px)'
+          'transform': 'translateY(20px)'
         });
         
         // Start new transitions
         setTimeout(function() {
-          nextItem.find('.detail-box, .img-box').css({
+          nextItem.find('.detail-box').css({
             'opacity': '1',
             'transform': 'translateY(0)'
           });
@@ -903,51 +903,50 @@
   <!-- Add transition styles -->
   <style>
     /* Carousel Transition Styles */
+    .slider_section {
+      background-color: #f8f9fa;
+      position: relative;
+      overflow: hidden;
+    }
+
     .carousel-item {
-      transition: transform 1.2s ease-in-out;
+      transition: transform 1s ease-in-out;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      display: block;
+      height: 100%;
+      opacity: 0;
+      background-color: #f8f9fa;
     }
 
     .carousel-item.active {
       position: relative;
-    }
-
-    .carousel-item-next:not(.carousel-item-left),
-    .carousel-item-prev:not(.carousel-item-right) {
-      transform: translateX(0);
-    }
-
-    .carousel-item-next.carousel-item-left,
-    .carousel-item-prev.carousel-item-right {
-      transform: translateX(0);
-    }
-
-    .carousel-item-next,
-    .carousel-item-prev {
-      position: absolute;
-      top: 0;
-    }
-
-    .carousel-item-next.carousel-item-left {
-      transform: translateX(-100%);
-    }
-
-    .carousel-item-prev.carousel-item-right {
-      transform: translateX(100%);
+      opacity: 1;
+      z-index: 1;
     }
 
     .carousel-inner {
       position: relative;
       width: 100%;
+      height: 100%;
       overflow: hidden;
     }
 
-    /* Fade effect for content */
-    .carousel-item .detail-box {
+    .img-box {
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide-img {
+      position: relative;
+      z-index: 2;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .detail-box {
+      position: relative;
+      z-index: 1;
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.8s ease-in-out;
@@ -958,16 +957,48 @@
       transform: translateY(0);
     }
 
-    /* Image transition */
-    .carousel-item .img-box {
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all 0.8s ease-in-out;
+    .carousel-item.active .slide-img {
+      transform: scale(1);
     }
 
-    .carousel-item.active .img-box {
+    .carousel-item-next:not(.carousel-item-left),
+    .carousel-item-prev:not(.carousel-item-right) {
+      transform: translateX(0);
+      opacity: 0;
+    }
+
+    .carousel-item-next.carousel-item-left,
+    .carousel-item-prev.carousel-item-right {
+      transform: translateX(0);
       opacity: 1;
-      transform: scale(1);
+    }
+
+    .carousel-item-next,
+    .carousel-item-prev {
+      position: absolute;
+      top: 0;
+    }
+
+    .carousel-item-next.carousel-item-left {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .carousel-item-prev.carousel-item-right {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    /* Ensure smooth transitions */
+    .carousel-item.active,
+    .carousel-item-next.carousel-item-left,
+    .carousel-item-prev.carousel-item-right {
+      z-index: 2;
+    }
+
+    .carousel-item-next,
+    .carousel-item-prev {
+      z-index: 1;
     }
   </style>
 
