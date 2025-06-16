@@ -76,7 +76,7 @@
     <!-- end header section -->
     <!-- slider section -->
     <section class="slider_section">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel" data-interval="3000">
         <div class="carousel-inner">
           <!-- First Slide -->
           <div class="carousel-item active">
@@ -464,7 +464,7 @@
               <div class="col-md-10 mx-auto">
                 <div class="box">
                   <div class="img-box">
-                    <img src="images/client1.jpg" alt="">
+                    <img src="images/client1.jpg" alt="" style="position: relative; z-index: 1;">
                   </div>
                   <div class="detail-box">
                     <div class="client_info">
@@ -534,7 +534,7 @@
               <div class="col-md-10 mx-auto">
                 <div class="box">
                   <div class="img-box">
-                    <img src="images/client2.jpg" alt="">
+                    <img src="images/client2.jpg" alt="" style="position: relative; z-index: 1;">
                   </div>
                   <div class="detail-box">
                     <div class="client_info">
@@ -572,7 +572,7 @@
             <div class="col-md-10 mx-auto">
               <div class="box">
                 <div class="img-box">
-                  <img src="images/client2.jpg" alt="">
+                  <img src="images/client2.jpg" alt="" style="position: relative; z-index: 1;">
                 </div>
                 <div class="detail-box">
                   <div class="client_info">
@@ -861,22 +861,18 @@
   <!-- Initialize carousel -->
   <script>
     $(document).ready(function() {
-      // Initialize the carousel with options
       var carousel = $('#customCarousel1');
       
-      // Set carousel options
+      // Initialize carousel with options
       carousel.carousel({
-        interval: 3000,  // Change slide every 3 seconds
-        wrap: true,      // Continuous loop
-        keyboard: true,  // Enable keyboard navigation
-        pause: 'hover'   // Pause on mouse hover
+        interval: 5000,
+        wrap: true,
+        keyboard: true,
+        pause: 'hover'
       });
 
       // Force carousel to start
       carousel.carousel('cycle');
-
-      // Add transition classes
-      carousel.find('.carousel-item').addClass('transition');
 
       // Handle slide transitions
       carousel.on('slide.bs.carousel', function () {
@@ -887,27 +883,91 @@
           nextItem = $(this).find('.carousel-item:first');
         }
         
-        activeItem.removeClass('active');
-        nextItem.addClass('active');
+        // Reset transitions
+        activeItem.find('.detail-box, .img-box').css({
+          'opacity': '0',
+          'transform': activeItem.hasClass('carousel-item-next') ? 'translateY(20px)' : 'translateY(-20px)'
+        });
+        
+        // Start new transitions
+        setTimeout(function() {
+          nextItem.find('.detail-box, .img-box').css({
+            'opacity': '1',
+            'transform': 'translateY(0)'
+          });
+        }, 50);
       });
     });
   </script>
 
   <!-- Add transition styles -->
   <style>
+    /* Carousel Transition Styles */
     .carousel-item {
-      transition: transform .6s ease-in-out;
-    }
-    .carousel-item.active {
+      transition: transform 1.2s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       display: block;
     }
+
+    .carousel-item.active {
+      position: relative;
+    }
+
     .carousel-item-next:not(.carousel-item-left),
     .carousel-item-prev:not(.carousel-item-right) {
       transform: translateX(0);
     }
+
     .carousel-item-next.carousel-item-left,
     .carousel-item-prev.carousel-item-right {
       transform: translateX(0);
+    }
+
+    .carousel-item-next,
+    .carousel-item-prev {
+      position: absolute;
+      top: 0;
+    }
+
+    .carousel-item-next.carousel-item-left {
+      transform: translateX(-100%);
+    }
+
+    .carousel-item-prev.carousel-item-right {
+      transform: translateX(100%);
+    }
+
+    .carousel-inner {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Fade effect for content */
+    .carousel-item .detail-box {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .carousel-item.active .detail-box {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Image transition */
+    .carousel-item .img-box {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .carousel-item.active .img-box {
+      opacity: 1;
+      transform: scale(1);
     }
   </style>
 
