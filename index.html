@@ -1,35 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Basic -->
+  <!-- Meta Tags -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
   <meta name="keywords" content="web development, hosting, Microsoft 365, IT consultancy, Kampala, Uganda">
-  <meta name="description"
-    content="Synced Creative Agency - Your trusted partner for web development, hosting, and Microsoft 365 consultancy services in Kampala, Uganda">
+  <meta name="description" content="Synced Creative Agency - Your trusted partner for web development, hosting, and Microsoft 365 consultancy services in Kampala, Uganda">
   <meta name="author" content="" />
+
+  <!-- Social Media Meta Tags -->
+  <meta property="og:description" content="Discover Synced Creative Agency, Uganda's premier web design and digital marketing agency. We specialize in custom website development, SEO, and comprehensive digital solutions." />
+  <meta property="og:image" content="https://syncedcreativeagency.cc/images/logo-clear.png" />
+  <meta property="og:url" content="https://syncedcreativeagency.cc/index.html" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <title>Synced Creative Agency</title>
 
   <!-- Favicon -->
   <link href="images/favicon.ico" rel="icon">
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+  <link rel="stylesheet" href="lib/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 
-  <!-- font awesome style -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom Styles -->
+  <style>
+    /* Typography */
+    .courier-font {
+      font-family: "Courier", monospace;
+      font-weight: bold;
+    }
 
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+    /* Layout */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .layout_padding { padding: 75px 0; }
+    .layout_margin { margin: 75px 0; }
+
+    /* Components */
+    .heading_container {
+      margin-bottom: 30px;
+    }
+
+    .heading_container h2 {
+      font-weight: bold;
+      color: #252525;
+      text-transform: uppercase;
+    }
+
+    /* Buttons */
+    .btn1,
+    .quote_btn {
+      display: inline-block;
+      padding: 10px 45px;
+      background-color: #f46801;
+      color: #ffffff;
+      border-radius: 5px;
+      transition: all 0.3s;
+      border: 1px solid #f46801;
+    }
+
+    .quote_btn {
+      padding: 10px 25px;
+      margin: 0 10px;
+    }
+
+    .btn1:hover,
+    .quote_btn:hover {
+      background-color: transparent;
+      color: #f46801;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #128C7E;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* Cards */
+    .box {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Footer */
+    .footer_container {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      margin-top: auto;
+    }
+
+    .footer_section {
+      margin-bottom: 0;
+      padding: 20px 0;
+    }
+  </style>
 
 </head>
 
@@ -74,6 +177,7 @@
       </div>
     </header>
     <!-- end header section -->
+
     <!-- slider section -->
     <section class="slider_section">
       <div id="customCarousel1" class="carousel slide" data-ride="carousel" data-interval="3000">
@@ -169,7 +273,7 @@
   </div>
 
   <!-- service section -->
-  <section class="service_section layout_padding">
+  <section class="service_section layout_padding layout_margin">
     <div class="container">
       <div class="heading_container">
         <h2>
@@ -275,7 +379,7 @@
 
   <!-- about section -->
 
-  <section class="about_section layout_padding">
+  <section class="about_section layout_padding layout_margin">
     <div class="container  ">
       <div class="row">
         <div class="col-md-6">
@@ -315,7 +419,7 @@
 
   <!-- case section -->
 
-  <section class="case_section layout_padding">
+  <section class="case_section layout_padding layout_margin">
     <div class="container">
       <div class="heading_container">
         <h2>
@@ -377,7 +481,7 @@
   <!-- end case section -->
 
   <!-- client section -->
-  <section class="client_section ">
+  <section class="client_section layout_padding layout_margin">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
