@@ -38,6 +38,50 @@
   <meta property="og:image" content="https://https://syncedcreativeagency.cc/images/logo-clear.png" />
   <meta property="og:url" content="https://https://syncedcreativeagency.cc/about.html" />
   <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    .courier-font {
+      font-family: "Courier", monospace;
+      font-weight: bold;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-button:hover {
+      background-color: #128C7E;
+      color: white;
+      transform: scale(1.1);
+    }
+    .footer_container {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      margin-top: auto;
+    }
+    .footer_section {
+      margin-bottom: 0;
+      padding: 20px 0;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 </head>
 
 <body class="sub_page">
@@ -90,12 +134,6 @@
             <div class="heading_container">
               <h2>About Us</h2>
             </div>
-            <style>
-              .courier-font {
-                font-family: "Courier", monospace;
-                font-weight: bold;
-              }
-            </style>
             <p>
               At <b>Synced Creative Agency</b>, We don't stop at just creating
               websites. They understand the importance of seamless hosting and
@@ -104,12 +142,6 @@
               like a secure fortress, protecting websites from any digital
               threats while ensuring lightning-fast loading speeds.
             </p>
-            <style>
-              .courier-font {
-                font-family: "Courier", monospace;
-                font-weight: bold;
-              }
-            </style>
             <p>
               In a world where digital presence was key to success,
               <b>Synced Creative Agency</b> emerged as a trusted partner for
@@ -223,33 +255,6 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Add this style to your existing styles -->
-  <style>
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 3px #999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      z-index: 100;
-      transition: all 0.3s ease;
-    }
-
-    .whatsapp-button:hover {
-      background-color: #128C7E;
-      color: white;
-      transform: scale(1.1);
-    }
   <!-- jQuery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
@@ -266,57 +271,3 @@
 </body>
 
 </html>
-
-
-<style>
-/* WhatsApp Button Styles */
-.float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;  /* Changed from left to right */
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.float:hover {
-    background-color: #128C7E;
-    transform: scale(1.1);
-}
-
-.my-float {
-    margin: 0;
-}
-
-/* Fix footer spacing */
-.footer_container {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.footer_section {
-    margin-bottom: 0;
-    padding: 20px 0;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.footer_container {
-    margin-top: auto;
-}
-</style>
